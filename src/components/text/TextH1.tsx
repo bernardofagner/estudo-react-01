@@ -15,4 +15,4 @@ const TextH1: React.FC<ITextH1> = ({ text }) => {
     );
 }
 
-export { TextH1 };
+export default TextH1;
