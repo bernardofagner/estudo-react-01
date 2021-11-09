@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
 import {
-    BrowserRouter,
+    BrowserRouter as Router,
     Routes,
     Route,
     Link
 } from "react-router-dom";
 
+import styles from './Header.module.css';
 import { Home } from '../home/Home';
 import { About } from '../About/About';
 
@@ -14,6 +15,7 @@ const rotasAutenticadas = () => {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
+
             <Route path="/about" element={<About />} />
         </Routes>
     );
@@ -35,8 +37,8 @@ export const Header: React.FC = () => {
     const [rotaEstaAutenticada, setRotaEstaAutenticada] = useState<boolean>(true);
 
     return (
-        <BrowserRouter>
-            <div>
+        <Router>
+            <header className={styles['container']}>
                 <ul>
                     <li>
                         <Link to="/">Home</Link>
@@ -50,14 +52,13 @@ export const Header: React.FC = () => {
                         </li>
                     }
                 </ul>
+            </header>
 
-                <hr />
-
+            <div>
                 {/*  A <Routes> looks through all its children <Route> elements and renders the first one whose path  matches the current URL. Use a <Routes> any time
                     you have multiple routes, but you want only one of them to render at a time*/}
-
                 {rotaEstaAutenticada ? rotasAutenticadas() : rotasNaoAutenticadas()}
             </div>
-        </BrowserRouter>
+        </Router>
     );
 }
