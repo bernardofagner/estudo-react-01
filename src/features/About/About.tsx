@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './About.module.css'
 
-export const About: React.FC = () => {
+const About: React.FC = () => {
     return (
         <div className={styles['container']}>
             <h1>
@@ -10,3 +10,5 @@ export const About: React.FC = () => {
         </div>
     );
 };
+
+export default About;

@@ -1,63 +1,24 @@
 import React, { useState } from "react";
 
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link
-} from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
+import { RotasFeatures } from "../../common/enums/rotas/RotasExemplo";
 
 import styles from './Header.module.css';
-import { Home } from '../home/Home';
-import { About } from '../About/About';
 
-const rotasAutenticadas = () => {
+const Header: React.FC = () => {
     return (
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-        </Routes>
-    );
-};
-
-const rotasNaoAutenticadas = () => {
-    return (
-        <Route path="/outro">
-            <div>
-                Rota não autenticada
-            </div>
-        </Route>
-    );
-};
-
-export const Header: React.FC = () => {
-
-    //TODO: chamar as APIs p autenticação
-    const [rotaEstaAutenticada, setRotaEstaAutenticada] = useState<boolean>(true);
-
-    return (
-        <Router>
-            <header className={styles['container']}>
-                <ul>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/about">About</Link>
-                    </li>
-                    {!rotaEstaAutenticada &&
-                        <li>
-                            <Link to="/outro">Outro</Link>
-                        </li>
-                    }
-                </ul>
-            </header>
-
-            <div>
-                {/*  A <Routes> looks through all its children <Route> elements and renders the first one whose path  matches the current URL. Use a <Routes> any time
-                    you have multiple routes, but you want only one of them to render at a time*/}
-                {rotaEstaAutenticada ? rotasAutenticadas() : rotasNaoAutenticadas()}
-            </div>
-        </Router>
+        <header className={styles['container']}>
+            <ul>
+                <li>
+                    <button onClick={useNavigate(RotasFeatures.Home)}>Home</button>
+                </li>
+                <li>
+                    <button onClick={useNavigate(RotasFeatures.About)}>About</button>
+                </li>
+            </ul>
+        </header>
     );
 }
+
+export default Header;
