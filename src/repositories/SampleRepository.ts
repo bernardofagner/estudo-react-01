@@ -1,3 +1,4 @@
+import { UserModel } from "../models/users/UserModel";
 import { RestBaseRepository } from "./base/RestBaseRepository";
 
 class SampleRepository extends RestBaseRepository {
@@ -6,8 +7,8 @@ class SampleRepository extends RestBaseRepository {
         super();
     }
 
-    public GetSampleInformation() {
-        return this.Client.get('endpoint');
+    public async GetSampleInformation() {
+        return await this.Client.get<UserModel>('endpoint');
     }
 }
 

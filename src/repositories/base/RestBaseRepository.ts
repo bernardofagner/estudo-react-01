@@ -1,4 +1,4 @@
-import { AxiosProvider } from "../../common/axios/AxiosProvider";
+import { AxiosProvider } from "../../common/restClient/axios/AxiosProvider";
 
 export abstract class RestBaseRepository {
 

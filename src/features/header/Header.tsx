@@ -30,7 +30,7 @@ const rotasNaoAutenticadas = () => {
     );
 };
 
-export const Menu: React.FC = () => {
+export const Header: React.FC = () => {
 
     //TODO: chamar as APIs p autenticação
     const [rotaEstaAutenticada, setRotaEstaAutenticada] = useState<boolean>(true);
