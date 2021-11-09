@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import {
-    BrowserRouter as Router,
+    BrowserRouter,
     Routes,
     Route,
     Link
@@ -35,7 +35,7 @@ export const Header: React.FC = () => {
     const [rotaEstaAutenticada, setRotaEstaAutenticada] = useState<boolean>(true);
 
     return (
-        <Router>
+        <BrowserRouter>
             <div>
                 <ul>
                     <li>
@@ -58,6 +58,6 @@ export const Header: React.FC = () => {
 
                 {rotaEstaAutenticada ? rotasAutenticadas() : rotasNaoAutenticadas()}
             </div>
-        </Router>
+        </BrowserRouter>
     );
 }
