@@ -1,29 +1,13 @@
 import React from 'react';
+
 import './App.css';
+import { Menu } from './features/menu/Menu';
 
-import Home from './global/pages/home/Home';
-// import About from './global/pages/about/About';
-
-const App = () => {
-
-    const homePage = () => {
-        return (
-            <div>
-                <Home />
-            </div>
-        );
-    };
-
-    // const aboutPage = () => {
-    //     return (
-    //         <div>
-    //             <About />
-    //         </div>
-    //     );
-    // };
-
+function App() {
     return (
-        homePage()
+        <div className="App">
+            <Menu />
+        </div>
     );
 }
 
