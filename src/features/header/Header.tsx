@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 
 import { useNavigate } from "react-router-dom";
@@ -11,10 +11,10 @@ const Header: React.FC = () => {
         <header className={styles['container']}>
             <ul>
                 <li>
-                    <button onClick={useNavigate(RotasFeatures.Home)}>Home</button>
+                    <button onClick={() => {useNavigate(RotasFeatures.Home)}}>Home</button>
                 </li>
                 <li>
-                    <button onClick={useNavigate(RotasFeatures.About)}>About</button>
+                    <button onClick={() => {useNavigate(RotasFeatures.About)}}>About</button>
                 </li>
             </ul>
         </header>

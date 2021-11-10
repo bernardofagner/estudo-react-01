@@ -10,14 +10,14 @@ const rotas: Rotas = {
         pathRota: RotasFeatures.Home,
         component: Home,
         nome: 'Rota exemplo About',
-        icone: iconeHome,
+        // icone: iconeHome,
         public: true,
     },
     about: {
         pathRota: RotasFeatures.About,
         component: About,
         nome: 'Rota exemplo About',
-        icone: iconeHome,
+        // icone: iconeHome,
         public: true,
     },
 };

@@ -1,6 +1,6 @@
 import ScrollToTop from "./ScrollToTop";
-import { Routes } from 'react-router-dom';
-import PublicRoute from "./PublicRoute";
+import { Routes, Route } from 'react-router-dom';
+// import PublicRoute from "./PublicRoute";
 import rotas from "../models/Rotas";
 
 
@@ -9,14 +9,9 @@ const Router: React.FC = () => {
         <>
             <ScrollToTop />
             <Routes>
-            {
-                Object.values(rotas).map(
+            {Object.values(rotas).map(
                     (rota) => (
-                        <PublicRoute
-                            key={rota.nome}
-                            exact path={rota.pathRota}
-                            component={rota.component}
-                        />
+                        <Route key={rota.nome} path={rota.pathRota} element={<rota.component />} />
                     )
                 )
             }
