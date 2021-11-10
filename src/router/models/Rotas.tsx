@@ -1,4 +1,4 @@
-import iconeHome from '../../common/assets/icons/iconeHome.svg';
+import iconeHome from '../../common/assets/icons/iconeHome.svg'; // icone indisponivel
 import { Rotas } from './IRotas';
 
 import { RotasFeatures } from '../../common/enums/rotas/RotasExemplo';
@@ -10,14 +10,14 @@ const rotas: Rotas = {
         pathRota: RotasFeatures.Home,
         component: Home,
         nome: 'Rota exemplo About',
-        icone: iconeHome,
+        // icone: iconeHome,
         public: true,
     },
     about: {
         pathRota: RotasFeatures.About,
         component: About,
         nome: 'Rota exemplo About',
-        icone: iconeHome,
+        // icone: iconeHome,
         public: true,
     },
 };
