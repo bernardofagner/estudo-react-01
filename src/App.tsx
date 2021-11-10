@@ -1,29 +1,21 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+
 import './App.css';
+import Footer from './features/footer';
+import Header from './features/header/Header';
+import { Router } from './router';
 
-import Home from './global/pages/home/Home';
-// import About from './global/pages/about/About';
-
-const App = () => {
-
-    const homePage = () => {
-        return (
-            <div>
-                <Home />
-            </div>
-        );
-    };
-
-    // const aboutPage = () => {
-    //     return (
-    //         <div>
-    //             <About />
-    //         </div>
-    //     );
-    // };
+function App() {
 
     return (
-        homePage()
+        <div className="App">
+            <BrowserRouter>
+                <Header />
+                <Router />
+                <Footer />
+            </BrowserRouter>
+        </div>
     );
 }
 
