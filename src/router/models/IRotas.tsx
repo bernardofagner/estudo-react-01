@@ -4,7 +4,6 @@ export interface Rota {
     pathRota: string;
     component: React.FC;
     nome: string;
-    icone?: string | ReactElement;
     parametrosBreadcrumbs?: Array<string>;
     public?: boolean;
 }

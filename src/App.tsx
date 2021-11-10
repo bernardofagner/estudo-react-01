@@ -5,7 +5,7 @@ import Footer from './features/footer';
 import Header from './features/header/Header';
 import { Router } from './router';
 
-function App() {
+const App: React.FC = () => {
     return (
         <div className="App">
             <Header />

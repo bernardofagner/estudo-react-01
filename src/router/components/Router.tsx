@@ -1,6 +1,5 @@
 import ScrollToTop from "./ScrollToTop";
 import { Routes, Route } from 'react-router-dom';
-// import PublicRoute from "./PublicRoute";
 import rotas from "../models/Rotas";
 
 
