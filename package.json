@@ -1,24 +1,26 @@
 {
-  "name": "estudo-react-01",
+  "name": "log-plataforma",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "@types/jest": "^26.0.24",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/jest": "^24.9.1",
     "@types/node": "^12.20.36",
-    "@types/react": "^17.0.33",
-    "@types/react-dom": "^17.0.10",
+    "@types/react": "^16.14.20",
+    "@types/react-dom": "^16.9.14",
     "@types/react-redux": "^7.1.20",
+    "@types/react-router": "^5.1.17",
+    "axios": "^0.24.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
+    "react-router": "^6.0.1",
+    "react-router-dom": "^6.0.1",
     "react-scripts": "4.0.3",
-    "redux": "^4.1.2",
-    "typescript": "^4.4.4",
-    "web-vitals": "^1.1.2"
+    "typescript": "^4.1.6"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -27,10 +29,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -43,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.3.2"
   }
 }
