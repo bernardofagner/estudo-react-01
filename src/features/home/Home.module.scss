@@ -1,0 +1,22 @@
+$variavel-cor-fundo: #d6d6e31c;
+
+.container {
+    padding: 20px;
+    max-width: 1170px;
+    margin: auto;
+    background-color: $variavel-cor-fundo;
+
+    .titulo {
+        margin: 10px 0 40px 0;
+    }
+
+    .container-texto {
+        margin: 0 0 10px 0;
+        text-align: justify;
+    }
+
+    .texto {
+        font-size: 1.0rem;
+        margin: 0 0 5px 0;
+    }
+}

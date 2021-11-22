@@ -1,6 +1,7 @@
 import React from 'react';
 
-import './App.css';
+import './App.scss';
+
 import { Footer } from './features/Footer/Footer';
 import { Header } from './features/Header/Header';
 import { Router } from './router';

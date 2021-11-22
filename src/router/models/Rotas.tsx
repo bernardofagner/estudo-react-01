@@ -2,12 +2,12 @@ import { Rotas } from './IRotas';
 
 import { RotasAPlicacao } from '../../common/enums/rotas/RotasExemplo';
 import About from '../../features/About/About';
-import Home from '../../features/Home/Home';
+import { Home } from '../../features/Home/Home';
 import Index from '../../features/Principal/Principal';
 
 const rotas: Rotas = {
     index: {
-        pathRota: '/',
+        pathRota: RotasAPlicacao.Principal,
         component: Index,
         nome: 'Rota pagina inicial'
     },

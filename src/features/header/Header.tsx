@@ -18,7 +18,7 @@ const Header: React.FC = () => {
         <header className={styles['container']}>
             <ul>
                 <li>
-                    <button onClick={() => { handleNavigate(RotasAPlicacao.Index) }}>Index</button>
+                    <button onClick={() => { handleNavigate(RotasAPlicacao.Principal) }}>Index</button>
                 </li>
                 <li>
                     <button onClick={() => { handleNavigate(RotasAPlicacao.Home) }}>Home</button>

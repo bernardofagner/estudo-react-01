@@ -1,5 +1,5 @@
 export enum RotasAPlicacao {
-    Index = '/',
+    Principal = '/',
     Home = '/home',
     About = '/about'
 }

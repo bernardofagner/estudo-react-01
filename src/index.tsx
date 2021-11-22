@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
@@ -10,7 +10,7 @@ import { RotasAPlicacao } from './common/enums/rotas/RotasExemplo';
 
 ReactDOM.render(
     <React.StrictMode>
-        <BrowserRouter basename={RotasAPlicacao.Index}>
+        <BrowserRouter basename={RotasAPlicacao.Principal}>
             <Provider store={store}>
                 <App />
             </Provider>
