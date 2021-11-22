@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useNavigate } from "react-router-dom";
-import { RotasFeatures } from "../../common/enums/rotas/RotasExemplo";
+import { RotasAPlicacao } from "../../common/enums/rotas/RotasExemplo";
 import styles from './Header.module.css';
 
 const Header: React.FC = () => {
@@ -10,7 +10,7 @@ const Header: React.FC = () => {
         importar em todos os componentes que fazem redirecionamento.*/
     const navigate = useNavigate();
     
-    const handleNavigate = (rota: RotasFeatures): void => {
+    const handleNavigate = (rota: RotasAPlicacao): void => {
         navigate(rota.toString());
     }
 
@@ -18,17 +18,17 @@ const Header: React.FC = () => {
         <header className={styles['container']}>
             <ul>
                 <li>
-                    <button onClick={() => { handleNavigate(RotasFeatures.Index) }}>Index</button>
+                    <button onClick={() => { handleNavigate(RotasAPlicacao.Index) }}>Index</button>
                 </li>
                 <li>
-                    <button onClick={() => { handleNavigate(RotasFeatures.Home) }}>Home</button>
+                    <button onClick={() => { handleNavigate(RotasAPlicacao.Home) }}>Home</button>
                 </li>
                 <li>
-                    <button onClick={() => { handleNavigate(RotasFeatures.About) }}>About</button>
+                    <button onClick={() => { handleNavigate(RotasAPlicacao.About) }}>About</button>
                 </li>
             </ul>
         </header>
     );
 }
 
-export default Header;
+export { Header };

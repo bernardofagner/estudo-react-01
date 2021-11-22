@@ -1,0 +1,7 @@
+.container {
+    background-color: #CCCC;
+    border-radius: 5px;
+}
+.card-info {
+    display: flex;
+}

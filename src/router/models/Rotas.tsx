@@ -1,9 +1,9 @@
 import { Rotas } from './IRotas';
 
-import { RotasFeatures } from '../../common/enums/rotas/RotasExemplo';
+import { RotasAPlicacao } from '../../common/enums/rotas/RotasExemplo';
 import About from '../../features/About/About';
-import Home from '../../features/home/Home';
-import Index from '../../features/index';
+import Home from '../../features/Home/Home';
+import Index from '../../features/Principal/Principal';
 
 const rotas: Rotas = {
     index: {
@@ -12,13 +12,13 @@ const rotas: Rotas = {
         nome: 'Rota pagina inicial'
     },
     home: {
-        pathRota: RotasFeatures.Home,
+        pathRota: RotasAPlicacao.Home,
         component: Home,
         nome: 'Rota exemplo About',
         public: true,
     },
     about: {
-        pathRota: RotasFeatures.About,
+        pathRota: RotasAPlicacao.About,
         component: About,
         nome: 'Rota exemplo About',
         public: true,

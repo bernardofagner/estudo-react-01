@@ -6,10 +6,11 @@ import { store } from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
+import { RotasAPlicacao } from './common/enums/rotas/RotasExemplo';
 
 ReactDOM.render(
     <React.StrictMode>
-        <BrowserRouter basename="/">
+        <BrowserRouter basename={RotasAPlicacao.Index}>
             <Provider store={store}>
                 <App />
             </Provider>
