@@ -1,8 +1,9 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
-// import { persistReducer } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
+import { HomeReducer } from '../../redux/features/home';
 
 export enum ReduxDataStatus {
     Null = 0,
@@ -22,10 +23,10 @@ class ReduxStore {
     private store: any;
 
     constructor() {
-        // const componentSamplePersistConfig = { key: 'componentSample', storage };        
+        const homePersistConfig = { key: 'homeRedux', storage };        
 
         const appReducers = combineReducers({
-            // componentSample: persistReducer(componentSamplePersistConfig, componentSampleReducer)
+            homeRedux: persistReducer(homePersistConfig, HomeReducer)
         });
 
         const rootReducer = (state: any, action: any) => {

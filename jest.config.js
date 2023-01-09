@@ -3,7 +3,8 @@ module.exports = {
     testEnvironment: 'jsdom',
     collectCoverage: true,
     collectCoverageFrom: [
-        'src/common/**/*.ts'
+        'src/common/**/*.ts',
+        'src/redux/**/*.ts'
     ],
     resetMocks: true,
     cache: false,
