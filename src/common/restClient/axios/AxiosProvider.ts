@@ -1,11 +1,11 @@
-import axios from 'axios';
-import { Config } from '../../../config/Config';
+import axios, { AxiosInstance } from 'axios';
+import { AppConfig } from '../../../config/AppConfig';
 
 export class AxiosProvider {
 
-    public static CreateAxiosInstance() {
+    public CreateAxiosInstance(): AxiosInstance {
         return axios.create({
-            baseURL: Config.Urls.Bff.BaseUrl
+            baseURL: AppConfig.Urls.Api.BaseUrl
         });
     }
 }
