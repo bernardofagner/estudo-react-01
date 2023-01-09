@@ -5,14 +5,6 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { HomeReducer } from '../../redux/features/home';
 
-export enum ReduxDataStatus {
-    Null = 0,
-    Loading = 1,
-    Error = 2,
-    NoContent = 3,
-    Success = 4,
-}
-
 export interface ReduxAction {
     type: string;
     payload: any;
@@ -23,10 +15,10 @@ class ReduxStore {
     private store: any;
 
     constructor() {
-        const homePersistConfig = { key: 'homeRedux', storage };        
+        const homePersistConfig = { key: 'homeStore', storage };        
 
         const appReducers = combineReducers({
-            homeRedux: persistReducer(homePersistConfig, HomeReducer)
+            homeStore: persistReducer(homePersistConfig, HomeReducer)
         });
 
         const rootReducer = (state: any, action: any) => {

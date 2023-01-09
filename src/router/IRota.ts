@@ -5,7 +5,7 @@ import Index from '../features/index/index';
 
 export interface IRota {
     pathRota: string;
-    component: React.FC;
+    component: React.FC<any>;
     name: string;
     public?: boolean;
 }

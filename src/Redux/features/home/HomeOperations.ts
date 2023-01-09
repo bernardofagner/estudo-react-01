@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { ReduxDataStatus } from '../../../config/ReduxStore/ReduxStore';
+import { ReduxDataStatus } from '../../../common/enums/redux/ReduxDataStatus';
 import HomeModel from '../../../models/home/HomeModel';
 import { homeActions } from './HomeActions';
 

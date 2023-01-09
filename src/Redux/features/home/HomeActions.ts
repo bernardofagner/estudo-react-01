@@ -1,4 +1,5 @@
-import { ReduxAction, ReduxDataStatus } from "../../../config/ReduxStore/ReduxStore";
+import { ReduxDataStatus } from "../../../common/enums/redux/ReduxDataStatus";
+import { ReduxAction } from "../../../config/ReduxStore/ReduxStore";
 import IHomeModel from "../../../models/home/HomeModel";
 
 export enum HomeActionsTypes {
