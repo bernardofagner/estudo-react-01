@@ -22,12 +22,10 @@ class ReduxStore {
     private store: any;
 
     constructor() {
-        // const fornecedoresParceirosPersistConfig = { key: 'fornecedoresParceiros', storage };
-        
+        // const componentSamplePersistConfig = { key: 'componentSample', storage };        
 
         const appReducers = combineReducers({
-            // fornecedoresParceiros: persistReducer(fornecedoresParceirosPersistConfig, FornecedoresParceirosReducer)
-            
+            // componentSample: persistReducer(componentSamplePersistConfig, componentSampleReducer)
         });
 
         const rootReducer = (state: any, action: any) => {
