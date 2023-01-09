@@ -2,6 +2,7 @@ import React from "react";
 import styles from './Home.module.css';
 
 const Home: React.FC = () => {
+
     return (
         <div className={styles['container']}>
             <h1>
@@ -11,4 +12,4 @@ const Home: React.FC = () => {
     );
 };
 
-export default Home;
+export { Home };
