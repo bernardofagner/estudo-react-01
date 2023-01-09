@@ -1,14 +1,17 @@
-import { UserModel } from "../models/users/UserModel";
+import { AppConfig } from "../config/AppConfig";
 import { RestBaseRepository } from "./base/RestBaseRepository";
 
 class SampleRepository extends RestBaseRepository {
+
+    private API_BASE_URL: string = AppConfig.Urls.Api.BaseUrl;
 
     constructor() {
         super();
     }
 
-    public async GetSampleInformation() {
-        return await this.Client.get<UserModel>('endpoint');
+    public async GetApiHealth() {
+        const url = `${this.API_BASE_URL}/health`;
+        return await super.Get(url);
     }
 }
 

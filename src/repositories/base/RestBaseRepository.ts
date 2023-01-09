@@ -16,9 +16,9 @@ interface DetalheErro {
     FalhaRede: boolean
 }
 
-export abstract class RepositorioRestBase {
+export abstract class RestBaseRepository {
 
-    private readonly Client: AxiosInstance;
+    protected readonly Client: AxiosInstance;
 
     constructor() {
         this.Client = new AxiosProvider().CreateAxiosInstance();
