@@ -25,8 +25,9 @@ const Home: React.FC<IHomeProps> = ({
 
         const statusModel: ReduxDataStatus = ReduxDataStatus.Success;
 
-        setHomeModel(model);
-        setStatusHomeModel(statusModel);
+        //TODO: Esses setStates não estão sendo reconhecidos
+        // setHomeModel(model);
+        // setStatusHomeModel(statusModel);
         // eslint-disable-next-line
     }, []);
 
