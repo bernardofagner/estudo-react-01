@@ -55,4 +55,4 @@ class ReduxStore {
 }
 
 const instance = new ReduxStore();
-export { instance as Store };
+export { instance as ReduxStore };
