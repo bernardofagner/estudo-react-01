@@ -1,3 +1,4 @@
+import httpStatus from "http-status";
 import { AppConfig } from "../config/AppConfig";
 import { RestBaseRepository } from "./base/RestBaseRepository";
 
@@ -11,7 +12,16 @@ class SampleRepository extends RestBaseRepository {
 
     public async GetApiHealth() {
         const url = `${this.API_BASE_URL}/health`;
-        return await super.Get(url);
+
+        const resposta = await super.Get(url);
+
+        if (resposta.Status === httpStatus.OK) {
+            return resposta.Conteudo;
+        }
+        else {
+            console.log(`Erro: ${resposta.Status} | ${resposta.Erro?.Mensagem}`);
+            return resposta.Conteudo;
+        }
     }
 }
 
