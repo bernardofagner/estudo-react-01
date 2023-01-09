@@ -4,17 +4,17 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
-export interface ReduxAction {
-    type: string;
-    payload: any;
-}
-
 export enum ReduxDataStatus {
     Null = 0,
     Loading = 1,
     Error = 2,
     NoContent = 3,
     Success = 4,
+}
+
+export interface ReduxAction {
+    type: string;
+    payload: any;
 }
 
 class ReduxStore {
