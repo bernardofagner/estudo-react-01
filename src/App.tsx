@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 import Footer from './features/footer';
 import Header from './features/header/Header';
-import { Router } from './router';
+import Router from './router/Router';
 
 const App: React.FC = () => {
     return (
