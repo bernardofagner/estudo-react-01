@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { ReduxDataStatus } from "../../common/enums/redux/ReduxDataStatus";
-import { IHomeModel } from "../../models/home/HomeModel";
 import styles from './Home.module.css';
+
+import { IHomeModel } from "../../models/home/HomeModel";
 
 interface IHomeProps {
     homeModel: IHomeModel,
@@ -19,7 +20,7 @@ const Home: React.FC<IHomeProps> = ({
 
     useEffect(() => {
         const model: IHomeModel = {
-            NomeSistema: '*** Nome alterado ***',
+            NomeSistema: '*** Nome alterado ',
             Contador: 5
         };
 
