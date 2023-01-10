@@ -149,9 +149,9 @@ export abstract class RestBaseRepository {
                 Erro: {
                     FalhaCliente: status >= 400 && status <= 499,
                     FalhaServidor: status >= 500,
-                    Origem: data.origem,
-                    Mensagem: data.mensagem,
-                    Notificacoes: data.notificacoes,
+                    Origem: 'A definir',
+                    Mensagem: 'A definir',
+                    Notificacoes: ['A definir'],
                     FalhaRede: false
                 },
             };
