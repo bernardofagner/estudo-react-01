@@ -1,9 +1,9 @@
 import React from 'react';
-
 import './App.css';
-import Footer from './features/footer';
+
 import Header from './features/header/Header';
 import Router from './router/Router';
+import Footer from './features/footer';
 
 const App: React.FC = () => {
     return (

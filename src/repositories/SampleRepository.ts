@@ -1,4 +1,4 @@
-import httpStatus from "http-status";
+import { StatusCodes } from "http-status-codes";
 import { AppConfig } from "../config/AppConfig";
 import { RestBaseRepository } from "./base/RestBaseRepository";
 
@@ -15,7 +15,7 @@ class SampleRepository extends RestBaseRepository {
 
         const resposta = await super.Get(url);
 
-        if (resposta.Status === httpStatus.OK) {
+        if (resposta.Status === StatusCodes.OK) {
             return resposta.Conteudo;
         }
         else {

@@ -31,7 +31,7 @@ const Home: React.FC<IHomeProps> = ({
             JSON.stringify(homeModel)
         );
 
-        setHomeModel(model);
+        // setHomeModel(model);
         // setStatusHomeModel(statusModel);
         // eslint-disable-next-line
     }, []);

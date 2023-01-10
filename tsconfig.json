@@ -16,9 +16,6 @@
         "module": "esnext",
         "moduleResolution": "node",
         "resolveJsonModule": true,
-        "typeRoots": [
-            "node_modules/@types"
-        ],
         "isolatedModules": true,
         "noEmit": true,
         "jsx": "react-jsx",
@@ -26,9 +23,6 @@
         "sourceMap": true
     },
     "include": [
-        "./src/**/*"
-    ],
-    "exclude": [
-        "node_modules"
+        "src"
     ]
 }
