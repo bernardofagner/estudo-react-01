@@ -8,7 +8,7 @@ import {
     setHomeRedux,
     setStatusHomeRedux,
     HomeReducer,
-    HomeState
+    IHomeState
 } from './';
 
 describe('HomeRedux', () => {
@@ -83,7 +83,7 @@ describe('HomeRedux', () => {
 
         test('Deve retornar o state correspondente à action type: SET_HOME', () => {
             //Arrange
-            const estadoAnterior: HomeState = {
+            const estadoAnterior: IHomeState = {
                 homeModelRedux: null,
                 HomeModelStatusRedux: ReduxDataStatus.Null
             };
@@ -96,7 +96,7 @@ describe('HomeRedux', () => {
                 } as IHomeModel
             };
 
-            const estadoEsperado: HomeState = {
+            const estadoEsperado: IHomeState = {
                 homeModelRedux: {
                     Contador: 2,
                     NomeSistema: 'Nome do sistema'
@@ -113,7 +113,7 @@ describe('HomeRedux', () => {
 
         test('Deve retornar o state correspondente à action type: SET_HOME_STATUS', () => {
             //Arrange
-            const estadoAnterior: HomeState = {
+            const estadoAnterior: IHomeState = {
                 homeModelRedux: null,
                 HomeModelStatusRedux: ReduxDataStatus.Null
             };
@@ -123,7 +123,7 @@ describe('HomeRedux', () => {
                 payload: ReduxDataStatus.Success
             };
 
-            const estadoEsperado: HomeState = {
+            const estadoEsperado: IHomeState = {
                 homeModelRedux: null,
                 HomeModelStatusRedux: ReduxDataStatus.Success
             };

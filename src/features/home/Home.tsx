@@ -1,51 +1,40 @@
 import React, { useEffect } from "react";
-import { ReduxDataStatus } from "../../common/enums/redux/ReduxDataStatus";
 import styles from './Home.module.css';
 
 import { IHomeModel } from "../../models/home/HomeModel";
+import { useDispatch, useSelector } from "react-redux";
+import { homeActions, IHomeState } from "../../redux/features/home";
+import { LogUtil } from "../../common/utils/LogUtil";
 
-interface IHomeProps {
-    homeModel: IHomeModel,
-    homeModelStatus: ReduxDataStatus,
-    setHomeModel: Function,
-    setStatusHomeModel: Function
-}
+const Home: React.FC = () => {
+    const dispatch = useDispatch();
 
-const Home: React.FC<IHomeProps> = ({
-    homeModel,
-    homeModelStatus,
-    setHomeModel,
-    setStatusHomeModel
-}) => {
+    const homeState =  useSelector((state:any) => {
+        return state.homeState as IHomeState
+    });
+
+    const setHomeModelRedux = (data: IHomeModel) => {
+        dispatch(homeActions.setHomeRedux(data));
+    }
 
     useEffect(() => {
-        const model: IHomeModel = {
-            NomeSistema: '*** Nome alterado ',
-            Contador: 5
-        };
-
-        const statusModel: ReduxDataStatus = ReduxDataStatus.Success;
-
-        //TODO: Esses setStates não estão sendo reconhecidos
-        console.log(
-            '===> HomeModel',
-            JSON.stringify(homeModel)
-        );
-
-        // setHomeModel(model);
-        // setStatusHomeModel(statusModel);
+        LogUtil.TrackEvent('homeModelRedux', homeState);
+        
+        setHomeModelRedux({
+            Contador: 100,
+            NomeSistema: 'Nome do sistema modificado 2x'
+        });
         // eslint-disable-next-line
     }, []);
 
-    return (
+    return homeState && (
         <div className={styles['container']}>
             <h1>
                 Página
             </h1>
 
-            <p>Nome da página: {homeModel?.NomeSistema} </p>
-            <p>Valor do contador: {homeModel?.Contador} </p>
-            <p>Status do redux: {homeModelStatus} </p>
+            <p>Nome da página: {homeState.homeModelRedux?.NomeSistema} </p>
+            <p>Valor do contador: {homeState.homeModelRedux?.Contador} </p>
         </div>
     );
 };

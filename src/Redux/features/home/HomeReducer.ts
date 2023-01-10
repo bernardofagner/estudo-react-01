@@ -4,20 +4,17 @@ import { HomeActionsTypes } from "./HomeActions";
 
 import { IHomeModel } from "../../../models/home/HomeModel";
 
-export interface HomeState {
+export interface IHomeState {
     homeModelRedux: IHomeModel | null;
     HomeModelStatusRedux: ReduxDataStatus;
 }
 
-const estadoInicial: HomeState = {
-    homeModelRedux: {
-        Contador: 12,
-        NomeSistema: 'Nome do sistema'
-    } as IHomeModel,
+const estadoInicial: IHomeState = {
+    homeModelRedux: null,
     HomeModelStatusRedux: ReduxDataStatus.Null
 };
 
-export const HomeReducer = (state: HomeState = estadoInicial, { type, payload }: ReduxAction): HomeState => {
+export const HomeReducer = (state: IHomeState = estadoInicial, { type, payload }: ReduxAction): IHomeState => {
 
     switch (type) {
         case HomeActionsTypes.SET_HOME: {
