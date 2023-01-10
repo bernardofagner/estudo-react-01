@@ -2,9 +2,14 @@ import { Dispatch } from 'redux';
 import { ReduxDataStatus } from '../../../common/enums/redux/ReduxDataStatus';
 import { ReduxAction } from '../../../common/types/ReduxAction';
 import { IHomeModel } from '../../../models/home/HomeModel';
-import { homeActions, HomeActionsTypes } from './HomeActions';
-import { setHomeRedux, setStatusHomeRedux } from './HomeOperations';
-import { HomeReducer, HomeState } from './HomeReducer';
+import {
+    homeActions,
+    HomeActionsTypes,
+    setHomeRedux,
+    setStatusHomeRedux,
+    HomeReducer,
+    HomeState
+} from './';
 
 describe('HomeRedux', () => {
 
