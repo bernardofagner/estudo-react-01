@@ -1,15 +1,18 @@
 import { ReduxDataStatus } from "../../../common/enums/redux/ReduxDataStatus";
 import { ReduxAction } from "../../../common/types/ReduxAction";
-import HomeModel from "../../../models/home/HomeModel";
+import { IHomeModel } from "../../../models/home/HomeModel";
 import { HomeActionsTypes } from "./HomeActions";
 
 export interface HomeState {
-    homeModelRedux: HomeModel | null;
+    homeModelRedux: IHomeModel | null;
     HomeModelStatusRedux: ReduxDataStatus;
 }
 
 const estadoInicial: HomeState = {
-    homeModelRedux: null,
+    homeModelRedux: {
+        Contador: 12,
+        NomeSistema: 'Nome do sistema'
+    } as IHomeModel,
     HomeModelStatusRedux: ReduxDataStatus.Null
 };
 

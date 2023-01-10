@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { ReduxDataStatus } from "../../common/enums/redux/ReduxDataStatus";
-import IHomeModel from "../../models/home/HomeModel";
+import { IHomeModel } from "../../models/home/HomeModel";
 import styles from './Home.module.css';
 
 interface IHomeProps {

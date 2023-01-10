@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import { ReduxDataStatus } from '../../../common/enums/redux/ReduxDataStatus';
 import { ReduxAction } from '../../../common/types/ReduxAction';
-import HomeModel from '../../../models/home/HomeModel';
+import { IHomeModel } from '../../../models/home/HomeModel';
 import { homeActions, HomeActionsTypes } from './HomeActions';
 import { setHomeRedux, setStatusHomeRedux } from './HomeOperations';
 import { HomeReducer, HomeState } from './HomeReducer';
@@ -12,7 +12,7 @@ describe('HomeRedux', () => {
 
         test('Deve criar o objeto do tipo ReduxAction com sucesso, com o payload esperado, no método setHomeRedux', () => {
             //Arrange
-            const homeModel: HomeModel = {
+            const homeModel: IHomeModel = {
                 Contador: 0,
                 NomeSistema: 'Sistema exemplo'
             };
@@ -42,7 +42,7 @@ describe('HomeRedux', () => {
 
         test('Deve chamar o dispatch 1 vez, na action setHomeRedux', () => {
             //Arrange
-            const homeModel: HomeModel = {
+            const homeModel: IHomeModel = {
                 Contador: 0,
                 NomeSistema: 'Sistema exemplo'
             };
@@ -88,7 +88,7 @@ describe('HomeRedux', () => {
                 payload: {
                     Contador: 2,
                     NomeSistema: 'Nome do sistema'
-                } as HomeModel
+                } as IHomeModel
             };
 
             const estadoEsperado: HomeState = {

@@ -1,7 +1,7 @@
 import Home from './Home';
 import { connect } from 'react-redux';
 import { ReduxDataStatus } from '../../common/enums/redux/ReduxDataStatus';
-import IHomeModel from '../../models/home/HomeModel';
+import { IHomeModel } from '../../models/home/HomeModel';
 import {
     setHomeRedux,
     setStatusHomeRedux

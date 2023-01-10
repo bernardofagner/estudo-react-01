@@ -1,4 +1,4 @@
-export default interface IHomeModel {
+export interface IHomeModel {
     NomeSistema: string;
     Contador: number;
 }
