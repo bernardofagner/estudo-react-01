@@ -1,6 +1,4 @@
 import { configureStore, combineReducers  } from '@reduxjs/toolkit';
-import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 import { ReduxAction } from "../../common/types/ReduxAction";
 
 import { HomeReducer } from "../../redux/features/home";
@@ -11,10 +9,8 @@ class ReduxStore {
     private store: any;
 
     constructor() {
-        const homePersistConfig = { key: 'homeStore', storage }; 
-
         const rootReducers = combineReducers({
-            homeState: persistReducer(homePersistConfig, HomeReducer)
+            homeState: HomeReducer
         });
 
         this.store = configureStore({

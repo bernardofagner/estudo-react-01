@@ -13,17 +13,18 @@ const Home: React.FC = () => {
         return state.homeState as IHomeState
     });
 
-    const setHomeModelRedux = (data: IHomeModel) => {
+    const setHomeRedux = (data: IHomeModel) => {
         dispatch(homeActions.setHomeRedux(data));
     }
 
     useEffect(() => {
         LogUtil.TrackEvent('homeModelRedux', homeState);
         
-        setHomeModelRedux({
+        setHomeRedux({
             Contador: 100,
             NomeSistema: 'Nome do sistema modificado 2x'
         });
+        
         // eslint-disable-next-line
     }, []);
 
