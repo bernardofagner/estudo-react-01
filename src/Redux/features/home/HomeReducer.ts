@@ -1,7 +1,8 @@
 import { ReduxDataStatus } from "../../../common/enums/redux/ReduxDataStatus";
 import { ReduxAction } from "../../../common/types/ReduxAction";
-import { IHomeModel } from "../../../models/home/HomeModel";
 import { HomeActionsTypes } from "./HomeActions";
+
+import { IHomeModel } from "../../../models/home/HomeModel";
 
 export interface HomeState {
     homeModelRedux: IHomeModel | null;

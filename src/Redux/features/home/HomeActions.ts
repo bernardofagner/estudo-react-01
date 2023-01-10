@@ -5,7 +5,7 @@ import { IHomeModel } from "../../../models/home/HomeModel";
 export enum HomeActionsTypes {
     SET_HOME = 'SET_HOME',
     SET_HOME_STATUS = 'SET_CONTADOR_STATUS'
-}
+};
 
 export const homeActions = {
     setHomeRedux: (homeModel: IHomeModel): ReduxAction => ({

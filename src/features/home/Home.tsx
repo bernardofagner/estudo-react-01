@@ -19,8 +19,8 @@ const Home: React.FC<IHomeProps> = ({
 
     useEffect(() => {
         const model: IHomeModel = {
-            NomeSistema: 'Nome do sistema inicial Reducer',
-            Contador: 10
+            NomeSistema: '*** Nome alterado ***',
+            Contador: 5
         };
 
         const statusModel: ReduxDataStatus = ReduxDataStatus.Success;
