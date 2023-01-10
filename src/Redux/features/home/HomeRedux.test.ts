@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import { ReduxDataStatus } from '../../../common/enums/redux/ReduxDataStatus';
-import { ReduxAction } from '../../../config/ReduxStore/ReduxStore';
+import { ReduxAction } from '../../../common/types/ReduxAction';
 import HomeModel from '../../../models/home/HomeModel';
 import { homeActions, HomeActionsTypes } from './HomeActions';
 import { setHomeRedux, setStatusHomeRedux } from './HomeOperations';

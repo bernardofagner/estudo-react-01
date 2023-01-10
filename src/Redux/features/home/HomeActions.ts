@@ -1,5 +1,5 @@
 import { ReduxDataStatus } from "../../../common/enums/redux/ReduxDataStatus";
-import { ReduxAction } from "../../../config/ReduxStore/ReduxStore";
+import { ReduxAction } from "../../../common/types/ReduxAction";
 import IHomeModel from "../../../models/home/HomeModel";
 
 export enum HomeActionsTypes {
@@ -12,6 +12,7 @@ export const homeActions = {
         type: HomeActionsTypes.SET_HOME,
         payload: homeModel
     }),
+
     setStatusHomeRedux: (status: ReduxDataStatus): ReduxAction => ({
         type: HomeActionsTypes.SET_HOME_STATUS,
         payload: status
