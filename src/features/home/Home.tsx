@@ -43,13 +43,13 @@ const Home: React.FC = () => {
         };
 
         CustomStore.AddItem({
-            key: CustomStoreKeys.HOME_COMPONENT_INFO,
-            data: info
+            Key: CustomStoreKeys.HOME_COMPONENT_INFO,
+            Data: info
         });
 
         CustomStore.AddItem({
-            key: CustomStoreKeys.HOME_COMPONENT_INFO,
-            data: info
+            Key: CustomStoreKeys.HOME_COMPONENT_INFO,
+            Data: info
         });
     }
 

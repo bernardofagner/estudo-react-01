@@ -6,8 +6,8 @@ export enum CustomStoreKeys {
 }
 
 interface ICustomStoreRegister<T> {
-    key: CustomStoreKeys,
-    data: T
+    Key: CustomStoreKeys;
+    Data: T;
 }
 
 class CustomStore {
@@ -21,7 +21,7 @@ class CustomStore {
     public AddItem<T>(data: ICustomStoreRegister<T>): boolean {
 
         LogUtil.TrackEvent('CustomStore - All items', data);
-        const previousItem = this.Store.find(item => item.key === data.key);
+        const previousItem = this.Store.find(item => item.Key === data.Key);
 
         if (previousItem) {
             LogUtil.TrackEvent('CustomStore - Error whlie adding item: itemKey already existis on:', previousItem);
@@ -40,7 +40,7 @@ class CustomStore {
     }
 
     public GetItem<T>(key: CustomStoreKeys) {
-        const item = this.Store.find(item => item.key === key);
+        const item = this.Store.find(item => item.Key === key);
         LogUtil.TrackEvent('CustomStore - Retrieved item:', item);
         return item as T;
     }
