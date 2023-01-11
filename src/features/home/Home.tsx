@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import './Home.module.css';
 
 import { IHomeModel } from "../../models/home/HomeModel";
@@ -15,24 +15,26 @@ interface IHomeComponentInfo {
 const Home: React.FC = () => {
     const dispatch = useDispatch();
 
-    const homeState =  useSelector((state:any) => {
+    const homeState = useSelector((state: any) => {
         return state.homeState as IHomeState
     });
 
     const setHomeRedux = (data: IHomeModel) => {
         dispatch(homeActions.setHomeRedux(data));
-    }
+    };
+
+    const [retrievedItem, setRetrievedItem] = useState<IHomeComponentInfo | null>(null);
 
     useEffect(() => {
-        LogUtil.TrackEvent('homeModelRedux', homeState);
-        
+        LogUtil.LogEvent('homeModelRedux', homeState);
+
         setHomeRedux({
             Contador: 100,
             NomeSistema: 'Nome do sistema modificado 2x'
         });
 
         functionForExperiments();
-        
+
         // eslint-disable-next-line
     }, []);
 
@@ -51,9 +53,12 @@ const Home: React.FC = () => {
             Key: CustomStoreKeys.HOME_COMPONENT_INFO,
             Data: info
         });
+
+        const registro = CustomStore.GetItem<IHomeComponentInfo>(CustomStoreKeys.HOME_COMPONENT_INFO);
+        setRetrievedItem(registro);
     }
 
-    return homeState && (
+    return (
         <div className='container'>
             <h1>
                 Página
@@ -61,6 +66,8 @@ const Home: React.FC = () => {
 
             <p>Nome da página: {homeState.homeModelRedux?.NomeSistema} </p>
             <p>Valor do contador: {homeState.homeModelRedux?.Contador} </p>
+            <p>Nome do componente: {retrievedItem?.Name} </p>
+            <p>Informações do componente: {retrievedItem?.Info} </p>
         </div>
     );
 };

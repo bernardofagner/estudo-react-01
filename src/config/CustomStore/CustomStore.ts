@@ -20,29 +20,32 @@ class CustomStore {
 
     public AddItem<T>(data: ICustomStoreRegister<T>): boolean {
 
-        LogUtil.TrackEvent('CustomStore - All items', data);
         const previousItem = this.Store.find(item => item.Key === data.Key);
 
         if (previousItem) {
-            LogUtil.TrackEvent('CustomStore - Error whlie adding item: itemKey already existis on:', previousItem);
+            LogUtil.LogEvent('CustomStore - Error whlie adding item: itemKey already existis on:', previousItem);
             return false;
         }
 
         try {
             this.Store.push(data);
-            LogUtil.TrackEvent('CustomStore - Added item:', data);
+            LogUtil.LogEvent('CustomStore - Added item:', data);
             return true;
         }
         catch (error) {
-            LogUtil.TrackEvent('CustomStore - Error while adding item:', {error});
+            LogUtil.LogEvent('CustomStore - Error while adding item:', {error});
             return false;
         }
     }
 
     public GetItem<T>(key: CustomStoreKeys) {
         const item = this.Store.find(item => item.Key === key);
-        LogUtil.TrackEvent('CustomStore - Retrieved item:', item);
-        return item as T;
+        LogUtil.LogEvent('CustomStore - Retrieved item:', item);
+        return item?.Data as T;
+    }
+
+    public ShowAllItensOnBrowserConsole(): void {
+        LogUtil.LogEvent('CustomStore - All items', this.Store);
     }
 }
 
