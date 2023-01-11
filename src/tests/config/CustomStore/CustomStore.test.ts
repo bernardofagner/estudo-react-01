@@ -7,12 +7,12 @@ describe('CustomStore', () => {
             const testeData1 = {
                 id: 1,
                 valor: 'valor'
-            };
+            } as {id: number, valor: string};
 
             const testeData2 = {
                 id: 1,
                 valor: 'valor'
-            };
+            } as {id: number, valor: string};
 
             CustomStore.AddItem({
                 Key: CustomStoreKeys.TEST_CASE_KEY_1,
@@ -27,7 +27,7 @@ describe('CustomStore', () => {
             //Act
             CustomStore.DeleteItem(CustomStoreKeys.TEST_CASE_KEY_2);
             CustomStore.DeleteItem(CustomStoreKeys.TEST_CASE_KEY_1);
-            const registro = CustomStore.GetItem(CustomStoreKeys.TEST_CASE_KEY_1);
+            const registro = CustomStore.GetItem<typeof testeData1>(CustomStoreKeys.TEST_CASE_KEY_1);
 
             //Assert
             expect(registro).toBe(null);

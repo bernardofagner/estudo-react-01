@@ -26,11 +26,11 @@ const Home: React.FC = () => {
     const [retrievedItem, setRetrievedItem] = useState<IHomeComponentInfo | null>(null);
 
     useEffect(() => {
-        LogUtil.LogEvent('Home.tsx', 'homeModelRedux', homeState);
+        LogUtil.LogEvent('Home.tsx', 'homeModelRedux', homeState, true);
 
         setHomeRedux({
             Contador: 100,
-            NomeSistema: 'Nome do sistema modificado 2x'
+            NomeSistema: 'Nome do sistema modificado via Redux'
         });
 
         functionForExperiments();
@@ -56,12 +56,14 @@ const Home: React.FC = () => {
 
         const registro = CustomStore.GetItem<IHomeComponentInfo>(CustomStoreKeys.HOME_COMPONENT_INFO);
         setRetrievedItem(registro);
+
+        CustomStore.ShowAllItensOnBrowserConsole();
     }
 
     return (
         <div className='container'>
             <h1>
-                Página
+                Home
             </h1>
 
             <p>Nome da página: {homeState.homeModelRedux?.NomeSistema} </p>
@@ -72,4 +74,4 @@ const Home: React.FC = () => {
     );
 };
 
-export default Home;
+export { Home };

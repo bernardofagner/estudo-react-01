@@ -9,24 +9,30 @@ const Header: React.FC = () => {
     /*  TODO: melhorar a abstração do useNavigate se possível para não ter que
         importar em todos os componentes que fazem redirecionamento.*/
     const navigate = useNavigate();
-    
+
     const handleNavigate = (rota: RotasFeatures): void => {
         navigate(rota.toString());
     }
 
     return (
-        <header className={styles['container']}>
-            <ul>
-                <li>
-                    <button onClick={() => { handleNavigate(RotasFeatures.Index) }}>Index</button>
-                </li>
-                <li>
-                    <button onClick={() => { handleNavigate(RotasFeatures.Home) }}>Home</button>
-                </li>
-                <li>
-                    <button onClick={() => { handleNavigate(RotasFeatures.About) }}>About</button>
-                </li>
-            </ul>
+        <header className={styles['pageContainer']}>
+            <div className={styles['containerItensMenu']}>
+                <button
+                    className={styles['botao']}
+                    onClick={() => { handleNavigate(RotasFeatures.Index) }}>
+                    Index
+                </button>
+                <button
+                    className={styles['botao']}
+                    onClick={() => { handleNavigate(RotasFeatures.Home) }}>
+                    Home
+                </button>
+                <button
+                    className={styles['botao']}
+                    onClick={() => { handleNavigate(RotasFeatures.About) }}>
+                    About
+                </button>
+            </div>
         </header>
     );
 }

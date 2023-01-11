@@ -1,6 +1,6 @@
 import { RotasFeatures } from '../common/enums/rotas/RotasExemplo';
 import About from '../features/About/About';
-import Home from '../features/home/Home';
+import { Home } from '../features/home/Home';
 import Index from '../features/index/index';
 
 export interface IRota {

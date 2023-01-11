@@ -1,4 +1,28 @@
-.container {
-    border: solid 1px #000000;
-    background-color: #ff730075;
+.pageContainer {
+    background-color: #460564d0;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.containerItensMenu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+
+.botao {
+    cursor: pointer;
+}
+
+.itemLista {
+    background-color: bla;
+    border: 1px solid #7597df;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 12px;
+    cursor: pointer;
 }

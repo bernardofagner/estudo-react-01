@@ -3,7 +3,8 @@ import { LogUtil } from "../../common/utils/LogUtil";
 export enum CustomStoreKeys {
     TEST_CASE_KEY_1 = 'TEST_CASE_KEY_1',
     TEST_CASE_KEY_2 = 'TEST_CASE_KEY_2',
-    HOME_COMPONENT_INFO = 'HOME_COMPONENT_INFO'
+    HOME_COMPONENT_INFO = 'HOME_COMPONENT_INFO',
+    ABOUT_COMPONENT_INFO = 'ABOUT_COMPONENT_INFO'
     //Add another keys
 }
 
@@ -17,7 +18,7 @@ class CustomStore {
     private Store: Array<ICustomStoreRegister<any>>;
 
     constructor() {
-        this.Store = [];
+        this.Store = new Array<ICustomStoreRegister<any>>();
     }
 
     public AddItem<T>(data: ICustomStoreRegister<T>): boolean {
@@ -27,7 +28,8 @@ class CustomStore {
             LogUtil.LogEvent(
                 'CustomStore',
                 'CustomStore.AddItem - Error whlie adding item: itemKey already existis on:',
-                previousItem
+                previousItem,
+                true
             );
 
             return false;
@@ -38,7 +40,8 @@ class CustomStore {
             LogUtil.LogEvent(
                 'CustomStore',
                 'CustomStore.AddItem - Added:',
-                data
+                data,
+                true
             );
 
             return true;
@@ -47,9 +50,10 @@ class CustomStore {
             LogUtil.LogEvent(
                 'CustomStore',
                 'CustomStore.AddItem - Error while adding item:',
-                { error }
+                { error },
+                true
             );
-            
+
             return false;
         }
     }
@@ -59,7 +63,8 @@ class CustomStore {
         LogUtil.LogEvent(
             'CustomStore',
             'CustomStore.GetItem - Retrieved item:',
-            item
+            item,
+            true
         );
 
         return item ? item.Data as T : null;
@@ -70,7 +75,12 @@ class CustomStore {
 
         try {
             const removedItem = this.Store.splice(indexOfItem, 1);
-            LogUtil.LogEvent('CustomStore', 'CustomStore.DeleteItem - Removed item:', removedItem);
+            LogUtil.LogEvent(
+                'CustomStore',
+                'CustomStore.DeleteItem - Removed item:',
+                removedItem,
+                true
+            );
 
             return true;
         }
@@ -78,7 +88,8 @@ class CustomStore {
             LogUtil.LogEvent(
                 'CustomStore',
                 `CustomStore.DeleteItem - Error while removing item from key $${key}:`,
-                { error }
+                { error },
+                true
             );
 
             return false;
@@ -86,7 +97,16 @@ class CustomStore {
     }
 
     public ShowAllItensOnBrowserConsole(): void {
-        LogUtil.LogEvent('CustomStore', 'CustomStore.ShowAllItensOnBrowserConsole - All items', this.Store);
+        LogUtil.LogEvent(
+            'CustomStore',
+            'CustomStore.ShowAllItensOnBrowserConsole - All items',
+            this.Store,
+            true
+        );
+    }
+
+    public GenerateLogFile(): void {
+        throw 'To be implemented';
     }
 }
 
