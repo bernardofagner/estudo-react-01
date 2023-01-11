@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { useNavigate } from "react-router-dom";
 import { RotasFeatures } from "../../common/enums/rotas/RotasExemplo";
