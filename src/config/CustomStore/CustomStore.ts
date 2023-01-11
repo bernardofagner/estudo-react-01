@@ -21,7 +21,6 @@ class CustomStore {
     public AddItem<T>(data: ICustomStoreRegister<T>): boolean {
 
         const previousItem = this.Store.find(item => item.Key === data.Key);
-
         if (previousItem) {
             LogUtil.LogEvent('CustomStore - Error whlie adding item: itemKey already existis on:', previousItem);
             return false;
