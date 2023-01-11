@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { LogUtil } from "../../common/utils/LogUtil";
 import { CustomStore, CustomStoreKeys } from "../../config/CustomStore/CustomStore";
 import './About.module.css';
 

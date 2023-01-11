@@ -31,4 +31,4 @@ const rotas: Array<IRota> = [
     },
 ];
 
-export default rotas;
+export { rotas };

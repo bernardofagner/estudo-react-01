@@ -106,7 +106,7 @@ class CustomStore {
     }
 
     public GenerateLogFile(): void {
-        throw 'To be implemented';
+        console.log('To be implemented');
     }
 }
 
