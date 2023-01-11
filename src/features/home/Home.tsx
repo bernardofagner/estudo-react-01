@@ -39,10 +39,10 @@ const Home: React.FC = () => {
     }, []);
 
     const functionForExperiments = () => {
-        const info: IHomeComponentInfo = {
+        const info = {
             Name: 'HomeComponent',
             Info: 'Componente usado para testes'
-        };
+        } as IHomeComponentInfo;
 
         CustomStore.AddItem({
             Key: CustomStoreKeys.HOME_COMPONENT_INFO,
