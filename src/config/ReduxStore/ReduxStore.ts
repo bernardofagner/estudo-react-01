@@ -23,12 +23,12 @@ class ReduxStore {
     }
 
     public GetState() {
-        LogUtil.LogEvent('===> ReduxStore.GetState', this.store.getState());
+        LogUtil.LogEvent('ReduxStore', 'GetState', this.store.getState());
         return this.store.getState();
     }
 
     public Dispatch(action: ReduxAction): void {
-        LogUtil.LogEvent(`===> ReduxStore.Dispatch ${action.type}`, action);
+        LogUtil.LogEvent('ReduxStore', `Dispatch ${action.type}`, action);
         this.store.dispatch(action)
     }
 }

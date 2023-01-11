@@ -26,7 +26,7 @@ const Home: React.FC = () => {
     const [retrievedItem, setRetrievedItem] = useState<IHomeComponentInfo | null>(null);
 
     useEffect(() => {
-        LogUtil.LogEvent('homeModelRedux', homeState);
+        LogUtil.LogEvent('Home.tsx', 'homeModelRedux', homeState);
 
         setHomeRedux({
             Contador: 100,

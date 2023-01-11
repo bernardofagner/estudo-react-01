@@ -8,7 +8,7 @@ export class AppConfig {
     }
 
     public static Logs = {
-        ShowLogsOnBrowserConsole: true,
+        ShowAllLogsOnBrowserConsole: true,
         PersistLogOnDatabase: false
     }
 }
