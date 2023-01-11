@@ -1,10 +1,16 @@
 import React, { useEffect } from "react";
-import styles from './Home.module.css';
+import './Home.module.css';
 
 import { IHomeModel } from "../../models/home/HomeModel";
 import { useDispatch, useSelector } from "react-redux";
 import { homeActions, IHomeState } from "../../redux/features/home";
 import { LogUtil } from "../../common/utils/LogUtil";
+import { CustomStore, CustomStoreKeys } from "../../config/CustomStore/CustomStore";
+
+interface IHomeComponentInfo {
+    Name: string;
+    Info: string;
+}
 
 const Home: React.FC = () => {
     const dispatch = useDispatch();
@@ -24,12 +30,31 @@ const Home: React.FC = () => {
             Contador: 100,
             NomeSistema: 'Nome do sistema modificado 2x'
         });
+
+        functionForExperiments();
         
         // eslint-disable-next-line
     }, []);
 
+    const functionForExperiments = () => {
+        const info: IHomeComponentInfo = {
+            Name: 'HomeComponent',
+            Info: 'Componente usado para testes'
+        };
+
+        CustomStore.AddItem({
+            key: CustomStoreKeys.HOME_COMPONENT_INFO,
+            data: info
+        });
+
+        CustomStore.AddItem({
+            key: CustomStoreKeys.HOME_COMPONENT_INFO,
+            data: info
+        });
+    }
+
     return homeState && (
-        <div className={styles['container']}>
+        <div className='container'>
             <h1>
                 Página
             </h1>
