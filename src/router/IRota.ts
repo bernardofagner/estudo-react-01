@@ -1,6 +1,6 @@
 import { RotasFeatures } from '../common/enums/rotas/RotasExemplo';
 import About from '../features/About/About';
-import Home from '../features/home/Home';
+import { Home } from '../features/home/Home';
 import Index from '../features/index/index';
 
 export interface IRota {
@@ -31,4 +31,4 @@ const rotas: Array<IRota> = [
     },
 ];
 
-export default rotas;
+export { rotas };

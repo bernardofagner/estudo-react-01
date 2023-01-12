@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import ScrollToTop from "./ScrollToTop";
-import rotas from "./IRota";
+import { ScrollToTop } from "./ScrollToTop";
+import { rotas } from "./IRota";
 
 const Router: React.FC = () => {
     return (
@@ -16,4 +16,4 @@ const Router: React.FC = () => {
     );
 };
 
-export default Router;
+export { Router };

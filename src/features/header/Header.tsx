@@ -4,31 +4,37 @@ import { useNavigate } from "react-router-dom";
 import { RotasFeatures } from "../../common/enums/rotas/RotasExemplo";
 import styles from './Header.module.css';
 
+interface IInformacaoRota {
+    Nome: string;
+    Rota: RotasFeatures
+}
+
 const Header: React.FC = () => {
 
-    /*  TODO: melhorar a abstração do useNavigate se possível para não ter que
-        importar em todos os componentes que fazem redirecionamento.*/
+    const rotasDaAplicacao: Array<IInformacaoRota> = [
+        {Nome: 'Index', Rota: RotasFeatures.Index},
+        {Nome: 'Home', Rota: RotasFeatures.Home},
+        {Nome: 'About', Rota: RotasFeatures.About}
+    ];
+
     const navigate = useNavigate();
-    
     const handleNavigate = (rota: RotasFeatures): void => {
         navigate(rota.toString());
-    }
+    };
 
     return (
-        <header className={styles['container']}>
-            <ul>
-                <li>
-                    <button onClick={() => { handleNavigate(RotasFeatures.Index) }}>Index</button>
-                </li>
-                <li>
-                    <button onClick={() => { handleNavigate(RotasFeatures.Home) }}>Home</button>
-                </li>
-                <li>
-                    <button onClick={() => { handleNavigate(RotasFeatures.About) }}>About</button>
-                </li>
-            </ul>
+        <header className={styles['pageContainer']}>
+            <div className={styles['containerItensMenu']}>
+                {rotasDaAplicacao.map((rota) => (
+                    <button key={rota.Nome}
+                        className={styles['botao']}
+                        onClick={() => { handleNavigate(rota.Rota) }}>
+                        {rota.Nome}
+                    </button>
+                ))}
+            </div>
         </header>
     );
 }
 
-export default Header;
+export { Header };
