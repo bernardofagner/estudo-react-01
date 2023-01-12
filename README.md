@@ -37,6 +37,9 @@ Executar o script `npm run build`
 ## Executar o servidor
 Execute o comando `serve -s build`
 
+
+# Informativo
+
 Saiba mais em: [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
