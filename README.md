@@ -26,16 +26,16 @@ Your app is ready to be deployed!
 Veja mais em: [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 
-## Buil e deploy em servidor local e online
+# Buil e deploy em servidor local e online
 
-# Instalar dependências:
-`npm install -g serve`
+## Instalar dependências:
+Execute o comando `npm install -g serve`
 
-#Gerar versão de produção:
-Executar o script <npm run build>
+##  versão de produção:
+Executar o script `npm run build`
 
-# Executar o servidor
-`serve -s build`
+## Executar o servidor
+Execute o comando `serve -s build`
 
 Saiba mais em: [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
