@@ -35,7 +35,7 @@ export abstract class RestBaseRepository {
             const resposta = await this.Client.post(endpoint, body, headers);
 
             const respostaAxios: RespostaAxios = {
-                Conteudo: resposta.data.data,
+                Conteudo: resposta.data.conteudo,
                 Status: resposta.status,
             };
 
@@ -53,12 +53,11 @@ export abstract class RestBaseRepository {
      * @returns Retorna um objeto do tipo RespostaAxios contendo o registro e o status da requisição
      */
     protected async Get(endpoint: string, headers: any = null): Promise<RespostaAxios> {
-
         try {
             const resposta = await this.Client.get(endpoint, headers);
 
             const respostaAxios: RespostaAxios = {
-                Conteudo: resposta.data.data,
+                Conteudo: resposta.data.conteudo,
                 Status: resposta.status,
             };
 
@@ -139,7 +138,6 @@ export abstract class RestBaseRepository {
     }
 
     private tratarErroAxios(error: AxiosError): RespostaAxios {
-
         if (error && error.response) {
             const { status, data } = error.response;
 

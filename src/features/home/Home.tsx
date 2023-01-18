@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { homeActions, IHomeState } from "../../redux/features/home";
 import { LogUtil } from "../../common/utils/LogUtil";
 import { CustomStore, CustomStoreKeys } from "../../config/CustomStore/CustomStore";
+import { SampleRepository } from "../../repositories/SampleRepository";
 
 interface IHomeComponentInfo {
     Name: string;
@@ -26,7 +27,7 @@ const Home: React.FC = () => {
     const [retrievedItem, setRetrievedItem] = useState<IHomeComponentInfo | null>(null);
 
     useEffect(() => {
-        LogUtil.LogEvent('Home.tsx', 'homeModelRedux', homeState, true);
+        LogUtil.LogEvent('Home.tsx', 'homeModelRedux', homeState, false);
 
         setHomeRedux({
             Contador: 100,
@@ -70,6 +71,14 @@ const Home: React.FC = () => {
             <p>Valor do contador: {homeState.homeModelRedux?.Contador} </p>
             <p>Nome do componente: {retrievedItem?.Name} </p>
             <p>Informações do componente: {retrievedItem?.Info} </p>
+
+            <button
+                onClick={() => {
+                    SampleRepository.GetApiHealth()
+                }}
+            >
+                ObterSaudeApi
+            </button>
         </div>
     );
 };
