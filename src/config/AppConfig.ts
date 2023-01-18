@@ -2,7 +2,7 @@ export class AppConfig {
 
     public static Urls = {
         Api: {
-            BaseUrl: 'localhost/3000',
+            BaseUrl: 'localhost/5001',
             RequestTimeout: 5000
         }        
     }

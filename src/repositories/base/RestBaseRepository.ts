@@ -41,9 +41,9 @@ export abstract class RestBaseRepository {
 
             return respostaAxios;
         }
-        catch (erro) {
-            const erroAxios = erro as AxiosError;
-            return this.tratarErroAxios(erroAxios);
+        catch (apiError) {
+            const axiosError = apiError as AxiosError;
+            return this.tratarErroAxios(axiosError);
         }
     }
 
@@ -138,10 +138,10 @@ export abstract class RestBaseRepository {
         }
     }
 
-    private tratarErroAxios(erro: AxiosError): RespostaAxios {
+    private tratarErroAxios(error: AxiosError): RespostaAxios {
 
-        if (erro && erro.response) {
-            const { status, data } = erro.response;
+        if (error && error.response) {
+            const { status, data } = error.response;
 
             const respostaAxios: RespostaAxios = {
                 Conteudo: null,

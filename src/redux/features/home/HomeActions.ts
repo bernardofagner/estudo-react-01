@@ -1,6 +1,6 @@
 import { ReduxDataStatus } from "../../../common/enums/redux/ReduxDataStatus";
 import { ReduxAction } from "../../../common/types/ReduxAction";
-import { IHomeModel } from "../../../models/home/HomeModel";
+import { IHomeModel } from "../../../models/home/IHomeModel";
 
 export enum HomeActionsTypes {
     SET_HOME = 'SET_HOME',

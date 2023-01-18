@@ -7,10 +7,11 @@ export class AxiosProvider {
         /**
         * @param baseURL will be prepended to `url` unless `url` is absolute.
         * @param timeout specifies the number of milliseconds before the request times out.
+        * Documentation: https://www.npmjs.com/package/axios#features
         */
         return axios.create({
             baseURL: AppConfig.Urls.Api.BaseUrl,
             timeout: AppConfig.Urls.Api.RequestTimeout
-        })
+        });
     }
 }
