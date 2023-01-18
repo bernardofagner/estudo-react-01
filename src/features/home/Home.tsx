@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './Home.module.css';
 
-import { IHomeModel } from "../../models/home/HomeModel";
+import { IHomeModel } from "../../models/home/IHomeModel";
 import { useDispatch, useSelector } from "react-redux";
 import { homeActions, IHomeState } from "../../redux/features/home";
 import { LogUtil } from "../../common/utils/LogUtil";
