@@ -1,14 +1,7 @@
 import { StatusCodes } from "http-status-codes";
-import { AppConfig } from "../config/AppConfig";
-import { IApiHealth } from "../models/Api/IApiHealth";
 import { IRespostaAxios, RestBaseRepository } from "./base/RestBaseRepository";
 
 class SampleRepository extends RestBaseRepository {
-
-
-    constructor() {
-        super();
-    }
 
     public async GetApiHealth(): Promise<IRespostaAxios> {
         const endpoint = `/health`;

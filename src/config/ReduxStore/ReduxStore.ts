@@ -2,7 +2,6 @@ import { configureStore, combineReducers  } from '@reduxjs/toolkit';
 import { ReduxAction } from "../../common/types/ReduxAction";
 
 import { HomeReducer } from "../../redux/features/home";
-import { LogUtil } from "../../common/utils/LogUtil";
 
 class ReduxStore {
 
