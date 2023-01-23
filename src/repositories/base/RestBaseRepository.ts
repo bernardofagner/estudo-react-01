@@ -1,13 +1,13 @@
-import { AxiosError, AxiosInstance } from 'axios';
+import { AxiosError, AxiosInstance, AxiosResponse } from 'axios';
 import { AxiosProvider } from '../../common/restClient/axios/AxiosProvider';
 
-export interface RespostaAxios {
+export interface IRespostaAxios {
     Conteudo: any | null,
-    Erro?: DetalheErro,
+    Erro?: IDetalheErro | null,
     Status: number,
 }
 
-interface DetalheErro {
+interface IDetalheErro {
     Origem: string,
     Mensagem: string,
     Notificacoes: Array<string> | null,
@@ -30,42 +30,48 @@ export abstract class RestBaseRepository {
      * @param headers Representa o headers específicos para a requisição
      * @returns Retorna um objeto do tipo RespostaAxios contendo o registro e o status da requisição
      */
-    protected async Post<T>(endpoint: string, body: T, headers: any = null): Promise<RespostaAxios> {
+    protected async Post<T>(endpoint: string, body: T, headers: any = null): Promise<IRespostaAxios> {
+        const uri = this.Client.getUri();
+        const url = `${uri}${endpoint}`;
         try {
-            const resposta = await this.Client.post(endpoint, body, headers);
+            const resposta = await this.Client.post(url, body, headers);
 
-            const respostaAxios: RespostaAxios = {
+            const respostaAxios: IRespostaAxios = {
                 Conteudo: resposta.data.conteudo,
                 Status: resposta.status,
+                Erro: resposta.data.erro ? this.tratarRespostaErroApi(resposta) : null
             };
 
             return respostaAxios;
         }
         catch (apiError) {
             const axiosError = apiError as AxiosError;
-            return this.tratarErroAxios(axiosError);
+            return this.tratarExcecaoAxios(axiosError);
         }
     }
 
     /**
-     * @param endpoint Representa a fonte do recurso
+     * @param endpoint Representa a fonte do recurso no padrão '/endereco'
      * @param headers Representa o headers específicos para a requisição
      * @returns Retorna um objeto do tipo RespostaAxios contendo o registro e o status da requisição
      */
-    protected async Get(endpoint: string, headers: any = null): Promise<RespostaAxios> {
+    protected async Get(endpoint: string, headers: any = null): Promise<IRespostaAxios> {
+        const uri = this.Client.getUri();
+        const url = `${uri}${endpoint}`;
         try {
-            const resposta = await this.Client.get(endpoint, headers);
+            const resposta = await this.Client.get(url, headers);
 
-            const respostaAxios: RespostaAxios = {
+            const respostaAxios: IRespostaAxios = {
                 Conteudo: resposta.data.conteudo,
                 Status: resposta.status,
+                Erro: resposta.data.erro ? this.tratarRespostaErroApi(resposta) : null
             };
 
             return respostaAxios;
         }
         catch (erro) {
             const erroAxios = erro as AxiosError;
-            return this.tratarErroAxios(erroAxios);
+            return this.tratarExcecaoAxios(erroAxios);
         }
     }
 
@@ -75,20 +81,23 @@ export abstract class RestBaseRepository {
      * @param headers Representa o headers específicos para a requisição
      * @returns Retorna um objeto do tipo RespostaAxios contendo o registro e o status da requisição
     */
-    protected async Patch<T>(endpoint: string, body: T, headers: any = null): Promise<RespostaAxios> {
+    protected async Patch<T>(endpoint: string, body: T, headers: any = null): Promise<IRespostaAxios> {
+        const uri = this.Client.getUri();
+        const url = `${uri}${endpoint}`;
         try {
-            const resposta = await this.Client.patch(endpoint, body, headers);
+            const resposta = await this.Client.patch(url, body, headers);
 
-            const respostaAxios: RespostaAxios = {
+            const respostaAxios: IRespostaAxios = {
                 Conteudo: resposta.data.data,
                 Status: resposta.status,
+                Erro: resposta.data.erro ? this.tratarRespostaErroApi(resposta) : null
             };
 
             return respostaAxios;
         }
         catch (erro) {
             const erroAxios = erro as AxiosError;
-            return this.tratarErroAxios(erroAxios);
+            return this.tratarExcecaoAxios(erroAxios);
         }
     }
 
@@ -98,20 +107,23 @@ export abstract class RestBaseRepository {
      * @param headers Representa o headers específicos para a requisição
      * @returns Retorna um objeto do tipo RespostaAxios contendo o registro e o status da requisição
     */
-    protected async Put<T>(endpoint: string, body: T, headers: any = null): Promise<RespostaAxios> {
+    protected async Put<T>(endpoint: string, body: T, headers: any = null): Promise<IRespostaAxios> {
+        const uri = this.Client.getUri();
+        const url = `${uri}${endpoint}`;
         try {
-            const resposta = await this.Client.put(endpoint, body, headers);
+            const resposta = await this.Client.put(url, body, headers);
 
-            const respostaAxios: RespostaAxios = {
+            const respostaAxios: IRespostaAxios = {
                 Conteudo: resposta.data.data,
                 Status: resposta.status,
+                Erro: resposta.data.erro ? this.tratarRespostaErroApi(resposta) : null
             };
 
             return respostaAxios;
         }
         catch (erro) {
             const erroAxios = erro as AxiosError;
-            return this.tratarErroAxios(erroAxios);
+            return this.tratarExcecaoAxios(erroAxios);
         }
     }
 
@@ -120,57 +132,60 @@ export abstract class RestBaseRepository {
      * @param headers Representa o headers específicos para a requisição
      * @returns Retorna um objeto do tipo RespostaAxios contendo o registro e o status da requisição
      */
-    protected async Delete(endpoint: string, headers: any = null): Promise<RespostaAxios> {
+    protected async Delete(endpoint: string, headers: any = null): Promise<IRespostaAxios> {
+        const uri = this.Client.getUri();
+        const url = `${uri}${endpoint}`;
         try {
-            const resposta = await this.Client.delete(endpoint, headers);
+            const resposta = await this.Client.delete(url, headers);
 
-            const respostaAxios: RespostaAxios = {
+            const respostaAxios: IRespostaAxios = {
                 Conteudo: resposta.data.data,
                 Status: resposta.status,
+                Erro: resposta.data.erro ? this.tratarRespostaErroApi(resposta) : null
             };
 
             return respostaAxios;
         }
         catch (erro) {
             const erroAxios = erro as AxiosError;
-            return this.tratarErroAxios(erroAxios);
+            return this.tratarExcecaoAxios(erroAxios);
         }
     }
 
-    private tratarErroAxios(error: AxiosError): RespostaAxios {
-        if (error && error.response) {
-            const { status, data } = error.response;
+    private tratarRespostaErroApi(respostaApi: AxiosResponse<any, any>): IDetalheErro {
+        //Implementar conforme o Model de retorno de erro da API.
+        //Neste exemplo o model de erro é representado pela interface IDetalheErro
+        const { erro } = respostaApi.data;
+        const { status } = respostaApi;
 
-            const respostaAxios: RespostaAxios = {
-                Conteudo: null,
-                Status: status,
-                Erro: {
-                    FalhaCliente: status >= 400 && status <= 499,
-                    FalhaServidor: status >= 500,
-                    Origem: 'A definir',
-                    Mensagem: 'A definir',
-                    Notificacoes: ['A definir'],
-                    FalhaRede: false
-                },
-            };
+        const respostaAxios: IDetalheErro = {
+            FalhaCliente: status >= 400 && status <= 499,
+            FalhaServidor: status >= 500,
+            Origem: erro?.Origem ?? 'desconhecido',
+            Mensagem: erro?.Mensagem ?? 'desconhecido',
+            Notificacoes: erro?.Notificacoes as Array<string> ?? [],
+            FalhaRede: false
+        };
 
-            return respostaAxios;
-        }
-        else {
-            const respostaAxios: RespostaAxios = {
-                Conteudo: null,
-                Status: 0,
-                Erro: {
-                    FalhaCliente: false,
-                    FalhaServidor: false,
-                    Origem: '',
-                    Mensagem: '',
-                    Notificacoes: null,
-                    FalhaRede: true
-                },
-            };
+        return respostaAxios;
+    }
 
-            return respostaAxios;
-        }
+    private tratarExcecaoAxios(error: AxiosError): IRespostaAxios {
+        const { request, message } = error;
+
+        const respostaAxios: IRespostaAxios = {
+            Conteudo: null,
+            Status: request?.status ?? 0,
+            Erro: {
+                FalhaCliente: false,
+                FalhaServidor: false,
+                Origem: 'Erro de rede',
+                Mensagem: message,
+                Notificacoes: null,
+                FalhaRede: true
+            },
+        };
+
+        return respostaAxios;
     }
 }
