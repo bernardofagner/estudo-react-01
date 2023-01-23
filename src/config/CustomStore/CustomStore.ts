@@ -5,7 +5,7 @@ export enum CustomStoreKeys {
     TEST_CASE_KEY_2 = 'TEST_CASE_KEY_2',
     HOME_COMPONENT_INFO = 'HOME_COMPONENT_INFO',
     ABOUT_COMPONENT_INFO = 'ABOUT_COMPONENT_INFO'
-    //Add another keys
+    //TODO: Add another keys
 }
 
 interface ICustomStoreRegister<T> {
@@ -29,7 +29,7 @@ class CustomStore {
                 'CustomStore',
                 'CustomStore.AddItem - Error whlie adding item: itemKey already existis on:',
                 previousItem,
-                true
+                false
             );
 
             return false;
@@ -41,7 +41,7 @@ class CustomStore {
                 'CustomStore',
                 'CustomStore.AddItem - Added:',
                 data,
-                true
+                false
             );
 
             return true;
@@ -51,7 +51,7 @@ class CustomStore {
                 'CustomStore',
                 'CustomStore.AddItem - Error while adding item:',
                 { error },
-                true
+                false
             );
 
             return false;
@@ -64,7 +64,7 @@ class CustomStore {
             'CustomStore',
             'CustomStore.GetItem - Retrieved item:',
             item,
-            true
+            false
         );
 
         return item ? item.Data as T : null;
@@ -79,7 +79,7 @@ class CustomStore {
                 'CustomStore',
                 'CustomStore.DeleteItem - Removed item:',
                 removedItem,
-                true
+                false
             );
 
             return true;
@@ -101,7 +101,7 @@ class CustomStore {
             'CustomStore',
             'CustomStore.ShowAllItensOnBrowserConsole - All items',
             this.Store,
-            true
+            false
         );
     }
 
