@@ -1,7 +1,7 @@
 import { ReduxDataStatus } from '../../../common/enums/redux/ReduxDataStatus';
 import { homeActions } from './HomeActions';
 
-import { IHomeModel } from '../../../models/home/HomeModel';
+import { IHomeModel } from '../../../models/home/IHomeModel';
 import { Dispatch } from 'redux';
 
 export const setHomeRedux = (homeModel: IHomeModel) => (dispatch: Dispatch) => {

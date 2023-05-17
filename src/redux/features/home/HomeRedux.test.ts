@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import { ReduxDataStatus } from '../../../common/enums/redux/ReduxDataStatus';
 import { ReduxAction } from '../../../common/types/ReduxAction';
-import { IHomeModel } from '../../../models/home/HomeModel';
+import { IHomeModel } from '../../../models/home/IHomeModel';
 import {
     homeActions,
     HomeActionsTypes,

@@ -1,26 +1,19 @@
 import { StatusCodes } from "http-status-codes";
-import { AppConfig } from "../config/AppConfig";
-import { RestBaseRepository } from "./base/RestBaseRepository";
+import { IRespostaAxios, RestBaseRepository } from "./base/RestBaseRepository";
 
 class SampleRepository extends RestBaseRepository {
 
-    private API_BASE_URL: string = AppConfig.Urls.Api.BaseUrl;
+    public async GetApiHealth(): Promise<IRespostaAxios> {
+        const endpoint = `/health`;
 
-    constructor() {
-        super();
-    }
-
-    public async GetApiHealth() {
-        const url = `${this.API_BASE_URL}/health`;
-
-        const resposta = await super.Get(url);
-
+        const resposta = await super.Get(endpoint);
+        
         if (resposta.Status === StatusCodes.OK) {
-            return resposta.Conteudo;
+            return resposta;
         }
         else {
             console.log(`Erro: ${resposta.Status} | ${resposta.Erro?.Mensagem}`);
-            return resposta.Conteudo;
+            return resposta;
         }
     }
 }
