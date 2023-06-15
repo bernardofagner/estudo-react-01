@@ -5,7 +5,7 @@ import styles from './Index.module.css';
 const Index: React.FC = () => {
 
     useEffect(() => {
-        CustomStore.ShowAllItensOnBrowserConsole();
+        CustomStore.ListAllStoragedItems();
     }, []);
 
     return (

@@ -1,3 +1,4 @@
+import { BrowserStorageUtil } from "../../common/utils/BrowserStorageUtil";
 import { LogUtil } from "../../common/utils/LogUtil";
 
 export enum CustomStoreKeys {
@@ -25,31 +26,31 @@ class CustomStore {
 
         const previousItem = this.Store.find(item => item.Key === data.Key);
         if (previousItem) {
+            this.Store = this.Store.filter(item => item.Key !== data.Key);
             LogUtil.LogEvent(
                 'CustomStore',
-                'CustomStore.AddItem - Error whlie adding item: itemKey already existis on:',
-                previousItem,
-                false
+                'CustomStore.AddItem - Success: item updated',
+                data,
+                true
             );
-
-            return false;
         }
 
         try {
             this.Store.push(data);
             LogUtil.LogEvent(
                 'CustomStore',
-                'CustomStore.AddItem - Added:',
+                'CustomStore.AddItem - Success: new item created',
                 data,
                 false
             );
 
+            BrowserStorageUtil.AddLocalStorageItem(this.Store);
             return true;
         }
         catch (error) {
             LogUtil.LogEvent(
                 'CustomStore',
-                'CustomStore.AddItem - Error while adding item:',
+                `CustomStore.AddItem - Error`,
                 { error },
                 false
             );
@@ -82,12 +83,13 @@ class CustomStore {
                 false
             );
 
+            BrowserStorageUtil.AddLocalStorageItem(this.Store);
             return true;
         }
         catch (error) {
             LogUtil.LogEvent(
                 'CustomStore',
-                `CustomStore.DeleteItem - Error while removing item from key $${key}:`,
+                `CustomStore.DeleteItem - Error while removing item from key: $${key}\n=> ${error}`,
                 { error },
                 true
             );
@@ -96,7 +98,7 @@ class CustomStore {
         }
     }
 
-    public ShowAllItensOnBrowserConsole(): void {
+    public ListAllStoragedItems(): void {
         LogUtil.LogEvent(
             'CustomStore',
             'CustomStore.ShowAllItensOnBrowserConsole - All items',

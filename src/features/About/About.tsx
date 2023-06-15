@@ -11,7 +11,6 @@ const About: React.FC = () => {
     const [retrievedItem, setRetrievedItem] = useState<IAboutComponentInfo | null>(null);
 
     useEffect(() => {
-
         functionForExperiments();
 
         // eslint-disable-next-line
