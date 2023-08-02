@@ -24,25 +24,20 @@ class CustomStore {
 
     public AddItem<T>(data: ICustomStoreRegister<T>): boolean {
 
-        const previousItem = this.Store.find(item => item.Key === data.Key);
-        if (previousItem) {
-            this.Store = this.Store.filter(item => item.Key !== data.Key);
-            LogUtil.LogEvent(
-                'CustomStore',
-                'CustomStore.AddItem - Success: item updated',
-                data,
-                true
-            );
-        }
-
         try {
-            this.Store.push(data);
-            LogUtil.LogEvent(
-                'CustomStore',
-                'CustomStore.AddItem - Success: new item created',
-                data,
-                false
-            );
+            const dataIndex = this.Store.findIndex(s => s.Key === data.Key);
+            if (dataIndex !== -1) {
+                this.Store[dataIndex].Data = { ...data.Data };
+            }
+            else {                
+                this.Store.push(data);
+                LogUtil.LogEvent(
+                    'CustomStore',
+                    'CustomStore.AddItem - Success: new item created',
+                    data,
+                    false
+                );
+            }
 
             BrowserStorageUtil.AddLocalStorageItem(this.Store);
             return true;
