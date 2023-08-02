@@ -13,6 +13,10 @@ const About: React.FC = () => {
     useEffect(() => {
         functionForExperiments();
 
+        return () => {
+            console.log('UseEffect de desmontagem foi executado em About component');
+        };
+
         // eslint-disable-next-line
     }, []);
 
