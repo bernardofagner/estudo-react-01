@@ -1,5 +1,6 @@
 import { RotasFeatures } from '../common/enums/rotas/RotasExemplo';
 import { About } from '../features/About/About';
+import { Test } from '../features/Teste/Test';
 import { Home } from '../features/home/Home';
 import { Index } from '../features/index/index';
 
@@ -29,6 +30,12 @@ const rotas: Array<IRota> = [
         name: 'about',
         public: true,
     },
+    {
+        pathRota: RotasFeatures.Test,
+        component: Test,
+        name: 'test',
+        public: true
+    }
 ];
 
 export { rotas };

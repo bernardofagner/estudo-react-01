@@ -12,9 +12,10 @@ interface IInformacaoRota {
 const Header: React.FC = () => {
 
     const rotasDaAplicacao: Array<IInformacaoRota> = [
-        {Nome: 'Index', Rota: RotasFeatures.Index},
-        {Nome: 'Home', Rota: RotasFeatures.Home},
-        {Nome: 'About', Rota: RotasFeatures.About}
+        { Nome: 'Index', Rota: RotasFeatures.Index },
+        { Nome: 'Home', Rota: RotasFeatures.Home },
+        { Nome: 'About', Rota: RotasFeatures.About },
+        { Nome: 'Test', Rota: RotasFeatures.Test }
     ];
 
     const navigate = useNavigate();

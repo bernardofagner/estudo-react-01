@@ -1,5 +1,6 @@
 export enum RotasFeatures {
     Index = '/',
     Home = '/home',
-    About = '/about'
+    About = '/about',
+    Test = '/test'
 }
