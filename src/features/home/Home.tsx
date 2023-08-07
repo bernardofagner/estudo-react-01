@@ -58,7 +58,7 @@ const Home: React.FC = () => {
         const registro = CustomStore.GetItem<IHomeComponentInfo>(CustomStoreKeys.HOME_COMPONENT_INFO);
         setRetrievedItem(registro);
 
-        CustomStore.ShowAllItensOnBrowserConsole();
+        CustomStore.ListAllStoragedItems();
     }
 
     return (

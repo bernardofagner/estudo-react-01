@@ -11,8 +11,11 @@ const About: React.FC = () => {
     const [retrievedItem, setRetrievedItem] = useState<IAboutComponentInfo | null>(null);
 
     useEffect(() => {
-
         functionForExperiments();
+
+        return () => {
+            console.log('UseEffect de desmontagem foi executado em About component');
+        };
 
         // eslint-disable-next-line
     }, []);

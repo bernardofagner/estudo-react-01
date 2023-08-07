@@ -1,3 +1,4 @@
+import { BrowserStorageUtil } from "../../common/utils/BrowserStorageUtil";
 import { LogUtil } from "../../common/utils/LogUtil";
 
 export enum CustomStoreKeys {
@@ -23,33 +24,28 @@ class CustomStore {
 
     public AddItem<T>(data: ICustomStoreRegister<T>): boolean {
 
-        const previousItem = this.Store.find(item => item.Key === data.Key);
-        if (previousItem) {
-            LogUtil.LogEvent(
-                'CustomStore',
-                'CustomStore.AddItem - Error whlie adding item: itemKey already existis on:',
-                previousItem,
-                false
-            );
-
-            return false;
-        }
-
         try {
-            this.Store.push(data);
-            LogUtil.LogEvent(
-                'CustomStore',
-                'CustomStore.AddItem - Added:',
-                data,
-                false
-            );
+            const dataIndex = this.Store.findIndex(s => s.Key === data.Key);
+            if (dataIndex !== -1) {
+                this.Store[dataIndex].Data = { ...data.Data };
+            }
+            else {                
+                this.Store.push(data);
+                LogUtil.LogEvent(
+                    'CustomStore',
+                    'CustomStore.AddItem - Success: new item created',
+                    data,
+                    false
+                );
+            }
 
+            BrowserStorageUtil.AddLocalStorageItem(this.Store);
             return true;
         }
         catch (error) {
             LogUtil.LogEvent(
                 'CustomStore',
-                'CustomStore.AddItem - Error while adding item:',
+                `CustomStore.AddItem - Error`,
                 { error },
                 false
             );
@@ -82,12 +78,13 @@ class CustomStore {
                 false
             );
 
+            BrowserStorageUtil.AddLocalStorageItem(this.Store);
             return true;
         }
         catch (error) {
             LogUtil.LogEvent(
                 'CustomStore',
-                `CustomStore.DeleteItem - Error while removing item from key $${key}:`,
+                `CustomStore.DeleteItem - Error while removing item from key: $${key}\n=> ${error}`,
                 { error },
                 true
             );
@@ -96,7 +93,7 @@ class CustomStore {
         }
     }
 
-    public ShowAllItensOnBrowserConsole(): void {
+    public ListAllStoragedItems(): void {
         LogUtil.LogEvent(
             'CustomStore',
             'CustomStore.ShowAllItensOnBrowserConsole - All items',
