@@ -67,6 +67,7 @@ const Home: React.FC = () => {
                 Home
             </h1>
 
+            <p>Aplicação rodando na porta {process.env.PORT ?? "X"}</p>
             <p>Nome da página: {homeState.homeModelRedux?.NomeSistema} </p>
             <p>Valor do contador: {homeState.homeModelRedux?.Contador} </p>
             <p>Nome do componente: {retrievedItem?.Name} </p>

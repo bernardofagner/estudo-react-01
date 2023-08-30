@@ -1,0 +1,23 @@
+.container {
+    margin: 10px;;
+    min-height: 460px;
+}
+
+.codigo-de-barras-code-128 {
+    display:  flex;
+    width: 100%;
+    z-index: 10;
+    height: 100px;
+}
+
+.codigo-de-barras-js-barcode {
+    display:  flex;
+    width: 100%;
+    z-index: 10;
+}
+
+.codigo-de-barras-react-barcode {
+    display:  flex;
+    width: 100%;
+    z-index: 10;
+}

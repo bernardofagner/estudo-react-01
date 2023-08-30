@@ -1,5 +1,5 @@
 import { RotasFeatures } from '../common/enums/rotas/RotasExemplo';
-import { About } from '../features/About/About';
+import { CodigoBarras } from '../features/CodigoBarras/CodigoBarras';
 import { Test } from '../features/Teste/Test';
 import { Home } from '../features/home/Home';
 import { Index } from '../features/index/index';
@@ -26,8 +26,8 @@ const rotas: Array<IRota> = [
     },
     {
         pathRota: RotasFeatures.About,
-        component: About,
-        name: 'about',
+        component: CodigoBarras,
+        name: 'codigo-barras',
         public: true,
     },
     {
