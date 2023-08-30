@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CustomStore, CustomStoreKeys } from "../../config/CustomStore/CustomStore";
-import style from './CodigoBarras.module.css';
+import styles from './CodigoBarras.module.css';
 
-import { BarcodeCode128 } from '@grapecity/wijmo.react.barcode.common';
-import JsBarcode from "jsbarcode-fixed";
 import Barcode from "react-barcode";
 
 interface IAboutComponentInfoModel {
@@ -18,14 +16,12 @@ interface ICodeBarModel {
 
 const CodigoBarras: React.FC = () => {
     const [retrievedItem, setRetrievedItem] = useState<IAboutComponentInfoModel | null>(null);
-    const [codigoBarrasCode128, setCodigoBarrasCode128] = useState("");
     const [codigoBarrasJsBarcode, setCodigoBarrasJsBarcode] = useState<ICodeBarModel | null>(null);
 
     useEffect(() => {
-        setCodigoBarrasCode128("Codigo de barrasss");
         setCodigoBarrasJsBarcode({
-            Format: 'code128',
-            Value: '123456789'
+            Format: "CODE128",
+            Value: '33221034230979013860550030000416191730750716'
         });
 
         functionForExperiments();
@@ -38,8 +34,8 @@ const CodigoBarras: React.FC = () => {
 
     const functionForExperiments = () => {
         const info = {
-            Name: 'AboutComponent',
-            Info: 'Componente usado para testes'
+            Name: 'CodigoBarrasComponent',
+            Info: 'Componente usado para testes de biblioteca de código de barras'
         } as IAboutComponentInfoModel;
 
         CustomStore.AddItem({
@@ -51,67 +47,30 @@ const CodigoBarras: React.FC = () => {
         setRetrievedItem(registro);
     }
 
-    const configurarJsBarcode = () => {
-        if (codigoBarrasJsBarcode?.Value) {
-            const style = {
-                format: "code128",
-                textAlign: "center",
-                margin: 10,
-                font: "arial",
-                fontSize: 13,
-                textMargin: 5,
-                height: 100,
-                // width: 2, //Definir aqui ou com witdh 100% no elemento pai
-                displayValue: true
-            };
-
-            JsBarcode("#code128", "123456789", style);
-        }
-    };
-
-    const renderizarCodigoDeBarrasWijmoCode128 = () => {
-        return (
-            <div className={style['codigo-de-barras-code-128']}>
-                <BarcodeCode128
-                    value={codigoBarrasCode128}
-                    autoWidthZoom={1.5}
-                />
-            </div>
-        );
-    }
-
-    const renderizarCodigoDeBarrasJsBarcode = () => {
-        configurarJsBarcode();
-        return (
-            <div className={style['codigo-de-barras-js-barcode']}>
-                {codigoBarrasJsBarcode && codigoBarrasJsBarcode.Value &&
-                    <svg id="code128"></svg>
-                }
-            </div>
-        );
-    }
-
     const renderizarCodigoDeBarrasReactBarcode = () => {
         return (
-            <div className={style['codigo-de-barras-react-barcode']}>
+            <div className={styles['codigo-de-barras-react-barcode']}>
                 {codigoBarrasJsBarcode && codigoBarrasJsBarcode.Value &&
-                    <Barcode value="codigo de barras 12345678990A" format="CODE128"/>
+                    <Barcode
+                        value={codigoBarrasJsBarcode.Value}
+                        format={codigoBarrasJsBarcode.Format as any}
+                        displayValue={true}
+                        textAlign="center"
+                    />
                 }
             </div>
         );
     }
 
     return (
-        <div className={style['container']}>
+        <div className={styles['container']}>
             <h1>
-                About
+                Codigo de Barras
             </h1>
 
             <p>Nome do componente: {retrievedItem?.Name} </p>
             <p>Informações do componente: {retrievedItem?.Info} </p>
 
-            {/* {renderizarCodigoDeBarrasJsBarcode()} */}
-            {/* {renderizarCodigoDeBarrasWijmoCode128()} */}
             {renderizarCodigoDeBarrasReactBarcode()}
         </div>
     );
