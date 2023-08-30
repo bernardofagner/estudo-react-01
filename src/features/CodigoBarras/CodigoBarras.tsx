@@ -15,13 +15,14 @@ interface ICodeBarModel {
 }
 
 const CodigoBarras: React.FC = () => {
+    
     const [retrievedItem, setRetrievedItem] = useState<IAboutComponentInfoModel | null>(null);
     const [codigoBarrasJsBarcode, setCodigoBarrasJsBarcode] = useState<ICodeBarModel | null>(null);
 
     useEffect(() => {
         setCodigoBarrasJsBarcode({
             Format: "CODE128",
-            Value: '33221034230979013860550030000416191730750716'
+            Value: '33221034230979013860550030000416191735750716'
         });
 
         functionForExperiments();
@@ -56,6 +57,7 @@ const CodigoBarras: React.FC = () => {
                         format={codigoBarrasJsBarcode.Format as any}
                         displayValue={true}
                         textAlign="center"
+                        height={80}
                     />
                 }
             </div>
