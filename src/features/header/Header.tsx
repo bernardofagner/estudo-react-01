@@ -15,7 +15,7 @@ const Header: React.FC = () => {
         { Nome: 'Index', Rota: RotasFeatures.Index },
         { Nome: 'Home', Rota: RotasFeatures.Home },
         { Nome: 'About', Rota: RotasFeatures.About },
-        { Nome: 'Test', Rota: RotasFeatures.Test }
+        { Nome: 'FecharAba', Rota: RotasFeatures.Test }
     ];
 
     const navigate = useNavigate();
