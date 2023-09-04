@@ -1,6 +1,6 @@
 export enum RotasFeatures {
     Index = '/',
     Home = '/home',
-    About = '/about',
+    CodigoBarras = '/codigo-barras',
     ApiSync = '/api-sync'
 }

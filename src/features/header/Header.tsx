@@ -14,7 +14,7 @@ const Header: React.FC = () => {
     const rotasDaAplicacao: Array<IInformacaoRota> = [
         { Nome: 'Index', Rota: RotasFeatures.Index },
         { Nome: 'Home', Rota: RotasFeatures.Home },
-        { Nome: 'About', Rota: RotasFeatures.About },
+        { Nome: 'CodigoBarras', Rota: RotasFeatures.CodigoBarras },
         { Nome: 'ApiSync', Rota: RotasFeatures.ApiSync }
     ];
 

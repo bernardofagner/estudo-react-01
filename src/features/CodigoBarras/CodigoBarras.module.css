@@ -1,0 +1,10 @@
+.container {
+    margin: 10px;;
+    min-height: 460px;
+}
+
+.codigo-de-barras-react-barcode {
+    display:  flex;
+    width: 100%;
+    z-index: 10;
+}
