@@ -20,7 +20,7 @@ const ApiSync: React.FC = () => {
     return (
         <>
             <div>
-                {apiHealth}
+                {apiHealth ?? "Falta se conectar com o servidor para receber a resposta certa"}
             </div>
         </>
     );

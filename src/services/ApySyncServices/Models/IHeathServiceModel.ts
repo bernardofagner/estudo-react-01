@@ -1,3 +1,4 @@
 export interface IHealthServiceModel {
-    Info: string;
+    Message: string;
+    ApiVersion: number;
 }
