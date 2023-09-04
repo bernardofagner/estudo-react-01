@@ -1,6 +1,6 @@
 import React from "react";
 
-const Test: React.FC = () => {
+const ApiSync: React.FC = () => {
 
     const closeBrowserTab = (event: any) => {
         console.log('Executou: fecharAbaBrowser');
@@ -47,4 +47,4 @@ const Test: React.FC = () => {
     );
 }
 
-export { Test };
+export { ApiSync };

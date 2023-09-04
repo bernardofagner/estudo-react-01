@@ -1,6 +1,6 @@
 import { RotasFeatures } from '../common/enums/rotas/RotasExemplo';
 import { About } from '../features/About/About';
-import { Test } from '../features/Teste/Test';
+import { ApiSync } from '../features/ApiSync/ApiSync';
 import { Home } from '../features/home/Home';
 import { Index } from '../features/index/index';
 
@@ -31,9 +31,9 @@ const rotas: Array<IRota> = [
         public: true,
     },
     {
-        pathRota: RotasFeatures.Test,
-        component: Test,
-        name: 'test',
+        pathRota: RotasFeatures.ApiSync,
+        component: ApiSync,
+        name: 'api-sync',
         public: true
     }
 ];
