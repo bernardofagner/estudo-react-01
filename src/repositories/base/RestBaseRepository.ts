@@ -56,6 +56,7 @@ export abstract class RestBaseRepository {
      * @returns Retorna um objeto do tipo RespostaAxios contendo o registro e o status da requisição
      */
     protected async Get(endpoint: string, headers: any = null): Promise<IRespostaAxios> {
+        debugger;
         const uri = this.Client.getUri();
         const url = `${uri}${endpoint}`;
         try {

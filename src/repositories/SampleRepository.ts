@@ -4,6 +4,7 @@ import { IRespostaAxios, RestBaseRepository } from "./base/RestBaseRepository";
 class SampleRepository extends RestBaseRepository {
 
     public async GetApiHealth(): Promise<IRespostaAxios> {
+        debugger;
         const endpoint = `/health`;
 
         const resposta = await super.Get(endpoint);

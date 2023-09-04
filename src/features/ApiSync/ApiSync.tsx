@@ -1,47 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { HeathService } from '../../services/ApySyncServices/HeathService';
 
 const ApiSync: React.FC = () => {
 
-    const closeBrowserTab = (event: any) => {
-        console.log('Executou: fecharAbaBrowser');
-        // window.open("about:blank", "_self");
-        // window.close();
+    const [apiHealth, setApiHealth] = useState<any>(null);
 
-        window.location.reload();
-        window.close();
-    }
+    useEffect(() => {
+        debugger;
+        getrApiHealth();
+        debugger;
+    }, []);
 
-    const openNewWindow = () => {
-        window.open('www.ventrane.com');
-    }
-
-    const closeOpenedWindow = () => {
-        window.close();
+    const getrApiHealth = async () => {
+        debugger;
+        const result = await HeathService.GetApiHealth();
+        setApiHealth(result);
     }
 
     return (
         <>
             <div>
-                {/* Deixa a aba em branco */}
-                <button
-                    onClick={closeBrowserTab}
-                >
-                    Fechar Aba
-                </button>
-
-                {/* Abre uma aba via script */}
-                <button
-                    onClick={openNewWindow}
-                >
-                    Abrir aba
-                </button>
-
-                {/* Fecha uma aba aberta por script */}
-                <button
-                    onClick={closeOpenedWindow}
-                >
-                    Fechar aba
-                </button>
+                {apiHealth}
             </div>
         </>
     );
