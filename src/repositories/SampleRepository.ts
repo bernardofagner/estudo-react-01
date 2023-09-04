@@ -7,7 +7,7 @@ class SampleRepository extends RestBaseRepository {
         debugger;
         const endpoint = `/health`;
 
-        const resposta = await super.Get(endpoint);
+        const resposta = await super.GetAsync(endpoint);
         
         if (resposta.Status === StatusCodes.OK) {
             return resposta;
