@@ -15,7 +15,8 @@ const Header: React.FC = () => {
         { Nome: 'Index', Rota: RotasFeatures.Index },
         { Nome: 'Home', Rota: RotasFeatures.Home },
         { Nome: 'CodigoBarras', Rota: RotasFeatures.CodigoBarras },
-        { Nome: 'ApiSync', Rota: RotasFeatures.ApiSync }
+        { Nome: 'ApiSync', Rota: RotasFeatures.ApiSync },
+        { Nome: 'PaginaStyledComponent', Rota: RotasFeatures.StyledComponent }
     ];
 
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ const Header: React.FC = () => {
                 {rotasDaAplicacao.map((rota) => (
                     <button key={rota.Nome}
                         className={styles['botao']}
-                        onClick={() => { handleNavigate(rota.Rota) }}>
+                        onClick={() => handleNavigate(rota.Rota) }>
                         {rota.Nome}
                     </button>
                 ))}

@@ -1,6 +1,7 @@
 import { RotasFeatures } from '../common/enums/rotas/RotasExemplo';
 import { ApiSync } from '../features/ApiSync/ApiSync';
 import { CodigoBarras } from '../features/CodigoBarras/CodigoBarras';
+import { PaginaStyledComponent } from '../features/PaginaStyledComponet/PaginaStyledComponet';
 import { Home } from '../features/home/Home';
 import { Index } from '../features/index/index';
 
@@ -40,7 +41,13 @@ const rotas: Array<IRota> = [
         pathRota: RotasFeatures.CodigoBarras,
         component: CodigoBarras,
         name: 'codigo-barras',
-        public: true,
+        public: true
+    },
+    {
+        pathRota: RotasFeatures.StyledComponent,
+        component: PaginaStyledComponent,
+        name: 'pagina_styled-component',
+        public: true
     }
 ];
 
