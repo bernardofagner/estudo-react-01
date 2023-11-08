@@ -4,20 +4,20 @@ import styles from './CodigoBarras.module.css';
 
 import Barcode from "react-barcode";
 
-interface IAboutComponentInfoModel {
+interface ICodigoBarrasComponentInfoModel {
     Name: string;
     Info: string;
 }
 
-interface ICodeBarModel {
+interface ICodeBarrasModel {
     Format: string;
     Value: string
 }
 
 const CodigoBarras: React.FC = () => {
     
-    const [retrievedItem, setRetrievedItem] = useState<IAboutComponentInfoModel | null>(null);
-    const [codigoBarrasJsBarcode, setCodigoBarrasJsBarcode] = useState<ICodeBarModel | null>(null);
+    const [retrievedItem, setRetrievedItem] = useState<ICodigoBarrasComponentInfoModel | null>(null);
+    const [codigoBarrasJsBarcode, setCodigoBarrasJsBarcode] = useState<ICodeBarrasModel | null>(null);
 
     useEffect(() => {
         setCodigoBarrasJsBarcode({
@@ -28,7 +28,7 @@ const CodigoBarras: React.FC = () => {
         functionForExperiments();
 
         return () => {
-            console.log('UseEffect de desmontagem foi executado em About component');
+            console.log('UseEffect de desmontagem foi executado em CodigoBarras component');
         };
         // eslint-disable-next-line
     }, []);
@@ -37,14 +37,14 @@ const CodigoBarras: React.FC = () => {
         const info = {
             Name: 'CodigoBarrasComponent',
             Info: 'Componente usado para testes de biblioteca de código de barras'
-        } as IAboutComponentInfoModel;
+        } as ICodigoBarrasComponentInfoModel;
 
         CustomStore.AddItem({
-            Key: CustomStoreKeys.ABOUT_COMPONENT_INFO,
+            Key: CustomStoreKeys.CODIGO_BARRAS_COMPONENT_INFO,
             Data: info
         });
 
-        const registro = CustomStore.GetItem<IAboutComponentInfoModel>(CustomStoreKeys.ABOUT_COMPONENT_INFO);
+        const registro = CustomStore.GetItem<ICodigoBarrasComponentInfoModel>(CustomStoreKeys.CODIGO_BARRAS_COMPONENT_INFO);
         setRetrievedItem(registro);
     }
 

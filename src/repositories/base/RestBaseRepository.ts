@@ -30,7 +30,7 @@ export abstract class RestBaseRepository {
      * @param headers Representa o headers específicos para a requisição
      * @returns Retorna um objeto do tipo RespostaAxios contendo o registro e o status da requisição
      */
-    protected async Post<T>(endpoint: string, body: T, headers: any = null): Promise<IRespostaAxios> {
+    protected async PostAsync<T>(endpoint: string, body: T, headers: any = null): Promise<IRespostaAxios> {
         const uri = this.Client.getUri();
         const url = `${uri}${endpoint}`;
         try {
@@ -55,7 +55,8 @@ export abstract class RestBaseRepository {
      * @param headers Representa o headers específicos para a requisição
      * @returns Retorna um objeto do tipo RespostaAxios contendo o registro e o status da requisição
      */
-    protected async Get(endpoint: string, headers: any = null): Promise<IRespostaAxios> {
+    protected async GetAsync(endpoint: string, headers: any = null): Promise<IRespostaAxios> {
+        debugger;
         const uri = this.Client.getUri();
         const url = `${uri}${endpoint}`;
         try {
@@ -81,7 +82,7 @@ export abstract class RestBaseRepository {
      * @param headers Representa o headers específicos para a requisição
      * @returns Retorna um objeto do tipo RespostaAxios contendo o registro e o status da requisição
     */
-    protected async Patch<T>(endpoint: string, body: T, headers: any = null): Promise<IRespostaAxios> {
+    protected async PatchAsync<T>(endpoint: string, body: T, headers: any = null): Promise<IRespostaAxios> {
         const uri = this.Client.getUri();
         const url = `${uri}${endpoint}`;
         try {
@@ -107,7 +108,7 @@ export abstract class RestBaseRepository {
      * @param headers Representa o headers específicos para a requisição
      * @returns Retorna um objeto do tipo RespostaAxios contendo o registro e o status da requisição
     */
-    protected async Put<T>(endpoint: string, body: T, headers: any = null): Promise<IRespostaAxios> {
+    protected async PutAsync<T>(endpoint: string, body: T, headers: any = null): Promise<IRespostaAxios> {
         const uri = this.Client.getUri();
         const url = `${uri}${endpoint}`;
         try {
@@ -132,7 +133,7 @@ export abstract class RestBaseRepository {
      * @param headers Representa o headers específicos para a requisição
      * @returns Retorna um objeto do tipo RespostaAxios contendo o registro e o status da requisição
      */
-    protected async Delete(endpoint: string, headers: any = null): Promise<IRespostaAxios> {
+    protected async DeleteAsync(endpoint: string, headers: any = null): Promise<IRespostaAxios> {
         const uri = this.Client.getUri();
         const url = `${uri}${endpoint}`;
         try {

@@ -1,6 +1,7 @@
 export enum RotasFeatures {
     Index = '/',
     Home = '/home',
-    About = '/about',
-    Test = '/test'
+    CodigoBarras = '/codigo-barras',
+    ApiSync = '/api-sync',
+    StyledComponent = 'styled-component'
 }
