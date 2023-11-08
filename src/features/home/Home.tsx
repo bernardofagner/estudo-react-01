@@ -11,6 +11,7 @@ import { SampleRepository } from "../../repositories/SampleRepository";
 interface IHomeComponentInfo {
     Name: string;
     Info: string;
+    InfoAdicional: string;
 }
 
 const Home: React.FC = () => {
@@ -40,10 +41,11 @@ const Home: React.FC = () => {
     }, []);
 
     const functionForExperiments = () => {
-        const info = {
+        const info: IHomeComponentInfo = {
             Name: 'HomeComponent',
-            Info: 'Componente usado para testes'
-        } as IHomeComponentInfo;
+            Info: 'Componente usado para testes',
+            InfoAdicional: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium facere a esse iste non rem nisi sapiente, reprehenderit sit expedita culpa? Cupiditate aperiam minus, adipisci aliquam fuga dolore perspiciatis minima!"
+        };
 
         CustomStore.AddItem({
             Key: CustomStoreKeys.HOME_COMPONENT_INFO,
@@ -72,6 +74,7 @@ const Home: React.FC = () => {
             <p>Valor do contador: {homeState.homeModelRedux?.Contador} </p>
             <p>Nome do componente: {retrievedItem?.Name} </p>
             <p>Informações do componente: {retrievedItem?.Info} </p>
+            <p style={{maxWidth: '450px'}}>Informações adicionais: {retrievedItem?.InfoAdicional} </p>
 
             <button
                 onClick={() => {
