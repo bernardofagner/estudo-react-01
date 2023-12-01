@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import './Home.module.css';
 
-import { IHomeModel } from "../../models/home/IHomeModel";
+import { HomeDto } from "../../dtos/home/HomeDto";
 import { useDispatch, useSelector } from "react-redux";
 import { homeActions, IHomeState } from "../../redux/features/home";
 import { LogUtil } from "../../common/utils/LogUtil";
 import { CustomStore, CustomStoreKeys } from "../../config/CustomStore/CustomStore";
-import { SampleRepository } from "../../repositories/SampleRepository";
+import { SampleRepository } from "../../restRepositories/SampleRepository";
+import { IApiHealthModel } from "../../models/Services/ApiHealth/IApiHealthModel";
 
 interface IHomeComponentInfo {
     Name: string;
@@ -15,17 +16,19 @@ interface IHomeComponentInfo {
 }
 
 const Home: React.FC = () => {
-    const dispatch = useDispatch();
+
+    const [apiHealthState, setApiHealthState] = useState<IApiHealthModel | null>(null);
+    const [retrievedItem, setRetrievedItem] = useState<IHomeComponentInfo | null>(null);
 
     const homeState = useSelector((state: any) => {
         return state.homeState as IHomeState
     });
-
-    const setHomeRedux = (data: IHomeModel) => {
+    
+    const dispatch = useDispatch();
+    const setHomeRedux = (data: HomeDto) => {
         dispatch(homeActions.setHomeRedux(data));
     };
 
-    const [retrievedItem, setRetrievedItem] = useState<IHomeComponentInfo | null>(null);
 
     useEffect(() => {
         LogUtil.LogEvent('Home.tsx', 'homeModelRedux', homeState, false);
@@ -39,6 +42,14 @@ const Home: React.FC = () => {
 
         // eslint-disable-next-line
     }, []);
+
+    useEffect(() => {
+        CustomStore.AddItem({
+            Key: CustomStoreKeys.HOME_COMPONENT_API_HEALTH,
+            Data: apiHealthState
+        });
+    },
+    [apiHealthState]);
 
     const functionForExperiments = () => {
         const info: IHomeComponentInfo = {
@@ -69,7 +80,6 @@ const Home: React.FC = () => {
                 Home
             </h1>
 
-            <p>Aplicação rodando na porta {process.env.PORT ?? "X"}</p>
             <p>Nome da página: {homeState.homeModelRedux?.NomeSistema} </p>
             <p>Valor do contador: {homeState.homeModelRedux?.Contador} </p>
             <p>Nome do componente: {retrievedItem?.Name} </p>
@@ -77,12 +87,24 @@ const Home: React.FC = () => {
             <p style={{maxWidth: '450px'}}>Informações adicionais: {retrievedItem?.InfoAdicional} </p>
 
             <button
-                onClick={() => {
-                    SampleRepository.GetApiHealth()
+                onClick={async () => {
+                    const apiHealth = await SampleRepository.GetApiHealth<IApiHealthModel>();
+                    setApiHealthState(apiHealth);
                 }}
             >
                 ObterSaudeApi
             </button>
+
+            <div>
+                {apiHealthState &&
+                <div>
+                    <p>Mensagem: {apiHealthState.message}</p>
+                    <p>Versão da API: {apiHealthState.apiVersion}</p>
+                    <p>Outras informações: {apiHealthState.anotherInformation}</p>
+                </div>
+
+                }
+            </div>
         </div>
     );
 };

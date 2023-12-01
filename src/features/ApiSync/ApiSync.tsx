@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
 
-import { ApiSyncService } from "../../services/ApiSyncServices/ApiSyncService";
-import { IApiHealthModel } from "../../models/Services/ApiSync/IApiHealthModel";
+import { ApiHealthService } from "../../services/ApiHealthServices/ApiHealthService";
+import { IApiHealthModel } from "../../models/Services/ApiHealth/IApiHealthModel";
+import { LogUtil } from "../../common/utils/LogUtil";
 
 const ApiSync: React.FC = () => {
 
-    const [apiHealthState, setApiHealthState] = useState<IApiHealthModel>({} as IApiHealthModel);
+    const [apiHealthState, setApiHealthState] = useState<IApiHealthModel | null>(null);
 
     useEffect(() => {
         getrApiHealth();
     }, []);
 
     const getrApiHealth = async () => {
-        const apiHealth = await ApiSyncService.GetApiHealth();
+        const apiHealth = await ApiHealthService.GetApiHealth();
         setApiHealthState(apiHealth);
+
+        LogUtil.LogEvent('ApiSync', "Método: getrApiHealth()", apiHealth, true);
     }
 
     const renderizarInformacoesDaApi = () => {
@@ -24,9 +27,9 @@ const ApiSync: React.FC = () => {
 
         return (
             <>
-                <p>{apiHealthState.Message}</p>
-                <p>{apiHealthState.ApiVersion}</p>
-                <p>{apiHealthState.AnotherInformation}</p>
+                <p>Mensagem: {apiHealthState.message}</p>
+                <p>Versão da API: {apiHealthState.apiVersion}</p>
+                <p>Outras informações: {apiHealthState.anotherInformation}</p>
             </>
         );
     };

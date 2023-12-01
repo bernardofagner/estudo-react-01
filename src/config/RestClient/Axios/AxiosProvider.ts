@@ -13,7 +13,7 @@ export class AxiosProvider {
         return axios.create({
             baseURL: baseUrl ?? "",
             headers: {
-                "Access-Control-Allow-Origin": `${AppConfig.ClientUrl}`
+                "Access-Control-Allow-Origin": AppConfig.ClientUrl
             }
         });
     }

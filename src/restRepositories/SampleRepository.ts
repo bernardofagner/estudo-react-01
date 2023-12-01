@@ -9,24 +9,14 @@ class SampleRepository extends RestBaseRepository {
 
         const endpoint = `/health`;
 
-        // const headers = {
-        //     "Access-Control-Allow-Origin": "http://localhost:3000"
-        // };
+        const resposta = await super.GetAsync<T>(endpoint);
 
-        try {
-            const resposta = await super.GetAsync(endpoint);
-
-            if (resposta.Status === StatusCodes.OK) {
-                return resposta.Conteudo as T;
-            }
-            else {
-                console.log(`Erro: ${resposta.Status} | ${resposta.Erro?.Mensagem}`);
-                return null;
-            }
-        } catch (error) {
-            //Tratar o erro.
-            return null;
+        if (resposta.StatusCode !== StatusCodes.OK) {
+            console.log(`Erro: ${resposta.StatusCode} | ${resposta.Erro?.message}`);
+            return resposta.Conteudo;
         }
+
+        return resposta.Conteudo;
     }
 }
 

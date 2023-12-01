@@ -1,10 +1,10 @@
 export class AppConfig {
 
-    public static ClientUrl = 'localhost:3000';
+    public static ClientUrl = 'http://localhost:3000';
 
     public static ServerUrls = {
         SampleApi: {
-            BaseUrl: 'https://localhost:5001/v1',
+            BaseUrl: 'http://localhost:5000/v1',
             RequestTimeout: 5000
         },
 
@@ -16,6 +16,6 @@ export class AppConfig {
 
     public static Logs = {
         ShowAllLogsOnBrowserConsole: false,
-        PersistLogOnDatabase: false
+        PersistLog: false
     };
 }
