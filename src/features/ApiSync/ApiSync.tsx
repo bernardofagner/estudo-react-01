@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { ApiSyncService } from "../../services/ApySyncServices/ApiSyncService";
+import { ApiSyncService } from "../../services/ApiSyncServices/ApiSyncService";
 import { IApiHealthModel } from "../../models/Services/ApiSync/IApiHealthModel";
 
 const ApiSync: React.FC = () => {

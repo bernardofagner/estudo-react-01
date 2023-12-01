@@ -1,4 +1,4 @@
-import axios, { AxiosHeaders, AxiosInstance } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 import { AppConfig } from '../../AppConfig';
 
 export class AxiosProvider {
