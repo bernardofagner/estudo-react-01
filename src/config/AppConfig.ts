@@ -5,12 +5,12 @@ export class AppConfig {
     public static ServerUrls = {
         SampleApi: {
             BaseUrl: 'http://localhost:5000/v1',
-            RequestTimeout: 5000
+            RequestTimeout: 30000
         },
 
         ComercialApi: {
             BaseUrl: 'base_url',
-            RequestTimeout: 5000
+            RequestTimeout: 30000
         }
     };
 

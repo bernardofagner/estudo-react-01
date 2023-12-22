@@ -1,4 +1,4 @@
-import { RotasFeatures } from '../common/enums/rotas/RotasExemplo';
+import { RotasFeatures } from '../common/enums/rotas/RotasFeatures';
 import { ApiSync } from '../features/ApiSync/ApiSync';
 import { CodigoBarras } from '../features/CodigoBarras/CodigoBarras';
 import { PaginaStyledComponent } from '../features/PaginaStyledComponet/PaginaStyledComponet';

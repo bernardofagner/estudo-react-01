@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useAtom } from "jotai/react";
+
 import './Home.module.css';
 
-import { HomeDto } from "../../dtos/home/HomeDto";
-import { useDispatch, useSelector } from "react-redux";
-import { homeActions, IHomeState } from "../../redux/features/home";
 import { LogUtil } from "../../common/utils/LogUtil";
 import { CustomStore, CustomStoreKeys } from "../../config/CustomStore/CustomStore";
 import { SampleRepository } from "../../restRepositories/SampleRepository";
 import { IApiHealthModel } from "../../models/Services/ApiHealth/IApiHealthModel";
+
+import { sampleInformationState } from '../../common/jotaiAtoms/SampleAtom/SampleAtom';
 
 interface IHomeComponentInfo {
     Name: string;
@@ -17,29 +18,15 @@ interface IHomeComponentInfo {
 
 const Home: React.FC = () => {
 
+    const sampleInformatioAtom = useAtom<string>(sampleInformationState);
+
     const [apiHealthState, setApiHealthState] = useState<IApiHealthModel | null>(null);
     const [retrievedItem, setRetrievedItem] = useState<IHomeComponentInfo | null>(null);
 
-    const homeState = useSelector((state: any) => {
-        return state.homeState as IHomeState
-    });
-    
-    const dispatch = useDispatch();
-    const setHomeRedux = (data: HomeDto) => {
-        dispatch(homeActions.setHomeRedux(data));
-    };
-
-
     useEffect(() => {
-        LogUtil.LogEvent('Home.tsx', 'homeModelRedux', homeState, false);
-
-        setHomeRedux({
-            Contador: 100,
-            NomeSistema: 'Nome do sistema modificado via Redux'
-        });
-
         functionForExperiments();
 
+        LogUtil.LogEvent('Home.tsx', 'log de exemplo', null, true);
         // eslint-disable-next-line
     }, []);
 
@@ -80,8 +67,10 @@ const Home: React.FC = () => {
                 Home
             </h1>
 
-            <p>Nome da página: {homeState.homeModelRedux?.NomeSistema} </p>
-            <p>Valor do contador: {homeState.homeModelRedux?.Contador} </p>
+            <p>
+                Atom info: {sampleInformatioAtom}
+            </p>
+
             <p>Nome do componente: {retrievedItem?.Name} </p>
             <p>Informações do componente: {retrievedItem?.Info} </p>
             <p style={{maxWidth: '450px'}}>Informações adicionais: {retrievedItem?.InfoAdicional} </p>

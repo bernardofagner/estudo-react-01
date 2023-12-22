@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useNavigate } from "react-router-dom";
-import { RotasFeatures } from "../../common/enums/rotas/RotasExemplo";
+import { RotasFeatures } from "../../common/enums/rotas/RotasFeatures";
 import styles from './Header.module.css';
 
 interface IInformacaoRota {

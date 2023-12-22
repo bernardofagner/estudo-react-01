@@ -3,7 +3,7 @@ import { IApiHealthModel } from '../../models/Services/ApiHealth/IApiHealthModel
 import { ApiHealthService } from './ApiHealthService';
 
 import {SampleRepository} from '../../restRepositories/SampleRepository';
-jest.mock('../../repositories/SampleRepository');
+jest.mock('../../restRepositories/SampleRepository');
 const SampleRepositoryMock = SampleRepository as jest.Mocked<typeof SampleRepository>;
 
 describe('ApiSyncService', () => {
