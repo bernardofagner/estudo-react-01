@@ -4,7 +4,6 @@ module.exports = {
     collectCoverage: true,
     collectCoverageFrom: [
         'src/common/**/*.ts',
-        'src/redux/**/*.ts',
         'src/config/**/*.ts',
         'src/services/**/*.ts',
     ],

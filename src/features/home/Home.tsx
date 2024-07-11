@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useAtom } from "jotai/react";
+import { useAtomValue } from "jotai/react";
 
 import './Home.module.css';
 
@@ -18,7 +18,7 @@ interface IHomeComponentInfo {
 
 const Home: React.FC = () => {
 
-    const sampleInformatioAtom = useAtom<string>(sampleInformationState);
+    const sampleInformatioAtom = useAtomValue<string>(sampleInformationState);
 
     const [apiHealthState, setApiHealthState] = useState<IApiHealthModel | null>(null);
     const [retrievedItem, setRetrievedItem] = useState<IHomeComponentInfo | null>(null);
