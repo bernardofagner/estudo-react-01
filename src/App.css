@@ -9,7 +9,7 @@ body {
 
 .App {
     min-width: 450px;
-    max-width: 500px;
+    max-width: 800px;
     border: 5px solid #110101a4;
     border-radius: 10px;
     margin: auto;

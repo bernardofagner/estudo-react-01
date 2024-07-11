@@ -36,7 +36,7 @@ const CodigoBarras: React.FC = () => {
     const functionForExperiments = () => {
         const info = {
             Name: 'CodigoBarrasComponent',
-            Info: 'Componente usado para testes de biblioteca de código de barras'
+            Info: 'Componente usado para testes de biblioteca de código de barras usando Custom Store'
         } as ICodigoBarrasComponentInfoModel;
 
         CustomStore.AddItem({

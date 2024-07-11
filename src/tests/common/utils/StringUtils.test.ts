@@ -1,13 +1,13 @@
 import { StringUtils } from "../../../common/utils/StringUtils";
 
 describe('StringUtils', () => {
-    describe('IsEmail', () => {
+    describe('IsValidEmail', () => {
         test('Valida email com sucesso - padrão correto', () => {
             //Arrange
-            const email = 'bernardo.fagner@hotmai.com';
+            const email = 'bernardo.fagner@servidor.com';
 
             //Act
-            const resultado = StringUtils.IsEmail(email);
+            const resultado = StringUtils.IsValidEmail(email);
 
             //Assert
             expect(resultado).toBe(true);
@@ -24,7 +24,7 @@ describe('StringUtils', () => {
 
             //Act and assert
             for (let email of listaEmailsInvalidos) {
-                const resultado = StringUtils.IsEmail(email);
+                const resultado = StringUtils.IsValidEmail(email);
                 expect(resultado).toBe(false);
             }
         });

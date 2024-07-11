@@ -5,7 +5,8 @@ module.exports = {
     collectCoverageFrom: [
         'src/common/**/*.ts',
         'src/redux/**/*.ts',
-        'src/config/**/*.ts'
+        'src/config/**/*.ts',
+        'src/services/**/*.ts',
     ],
     resetMocks: true,
     cache: false,

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useNavigate } from "react-router-dom";
-import { RotasFeatures } from "../../common/enums/rotas/RotasExemplo";
+import { RotasFeatures } from "../../common/enums/rotas/RotasFeatures";
 import styles from './Header.module.css';
 
 interface IInformacaoRota {
@@ -14,8 +14,8 @@ const Header: React.FC = () => {
     const rotasDaAplicacao: Array<IInformacaoRota> = [
         { Nome: 'Index', Rota: RotasFeatures.Index },
         { Nome: 'Home', Rota: RotasFeatures.Home },
-        { Nome: 'CodigoBarras', Rota: RotasFeatures.CodigoBarras },
         { Nome: 'ApiSync', Rota: RotasFeatures.ApiSync },
+        { Nome: 'CodigoBarras', Rota: RotasFeatures.CodigoBarras },
         { Nome: 'PaginaStyledComponent', Rota: RotasFeatures.StyledComponent }
     ];
 

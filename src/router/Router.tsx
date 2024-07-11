@@ -8,9 +8,7 @@ const Router: React.FC = () => {
             <ScrollToTop />
 
             <Routes>
-                {rotas.map((rota) => {
-                    return <Route key={rota.name} path={rota.pathRota} element={<rota.component />} />
-                })}
+                {rotas.map((rota) => (<Route key={rota.name} path={rota.pathRota} element={<rota.component />} />))}
             </Routes>
         </>
     );

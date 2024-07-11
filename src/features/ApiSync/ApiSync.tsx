@@ -1,27 +1,42 @@
 import React, { useEffect, useState } from "react";
-import { HeathService } from '../../services/ApySyncServices/HeathService';
+
+import { ApiHealthService } from "../../services/ApiHealthServices/ApiHealthService";
+import { IApiHealthModel } from "../../models/Services/ApiHealth/IApiHealthModel";
+import { LogUtil } from "../../common/utils/LogUtil";
 
 const ApiSync: React.FC = () => {
 
-    const [apiHealth, setApiHealth] = useState<any>(null);
+    const [apiHealthState, setApiHealthState] = useState<IApiHealthModel | null>(null);
 
     useEffect(() => {
-        debugger;
         getrApiHealth();
-        debugger;
     }, []);
 
     const getrApiHealth = async () => {
-        debugger;
-        const result = await HeathService.GetApiHealth();
-        setApiHealth(result);
+        const apiHealth = await ApiHealthService.GetApiHealth();
+        setApiHealthState(apiHealth);
+
+        LogUtil.LogEvent('ApiSync', "Método: getrApiHealth()", apiHealth, true);
     }
+
+    const renderizarInformacoesDaApi = () => {
+
+        if (!apiHealthState) {
+            return (<p>"Falta se conectar com o servidor para receber a resposta certa"</p >)
+        }
+
+        return (
+            <>
+                <p>Mensagem: {apiHealthState.message}</p>
+                <p>Versão da API: {apiHealthState.apiVersion}</p>
+                <p>Outras informações: {apiHealthState.anotherInformation}</p>
+            </>
+        );
+    };
 
     return (
         <>
-            <div>
-                {apiHealth ?? "Falta se conectar com o servidor para receber a resposta certa"}
-            </div>
+            {renderizarInformacoesDaApi()}
         </>
     );
 }
