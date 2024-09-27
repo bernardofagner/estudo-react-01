@@ -9,6 +9,8 @@ import { SampleRepository } from "../../restServices/SampleRepository";
 import { IApiHealthModel } from "../../models/Services/ApiHealth/IApiHealthModel";
 
 import { sampleInformationState } from '../../common/jotaiAtoms/SampleAtom/SampleAtom';
+import { applicationInfoState } from '../../common/jotaiAtoms/ApplicationInfoState/ApplicationInfoState';
+import { ApplicationStore } from "../../common/jotaiAtoms/ApplicationStore/ApplicationStore";
 
 interface IHomeComponentInfo {
     Name: string;
@@ -18,7 +20,13 @@ interface IHomeComponentInfo {
 
 const Home: React.FC = () => {
 
-    const sampleInformatioAtom = useAtomValue<string>(sampleInformationState);
+    const Store = ApplicationStore.GetApplicationStore();
+
+    //Obtem um atomo usando a store do atom diretamente
+    const sampleInformatioAtom = Store.get(sampleInformationState);
+
+    //Obtem um atomo via useAtomValue, que foi definido na inicialização da store.
+    const applicationInfoAtom = useAtomValue<string>(applicationInfoState);
 
     const [apiHealthState, setApiHealthState] = useState<IApiHealthModel | null>(null);
     const [retrievedItem, setRetrievedItem] = useState<IHomeComponentInfo | null>(null);
@@ -69,6 +77,10 @@ const Home: React.FC = () => {
 
             <p>
                 Atom info: {sampleInformatioAtom}
+            </p>
+
+            <p>
+                System information retrieved from Atom Store: "{applicationInfoAtom}"
             </p>
 
             <p>Nome do componente: {retrievedItem?.Name} </p>

@@ -5,5 +5,5 @@ export const StyledContainer = styled.div<{ altura: number }>`
     padding: 10px;
     border: 1px solid black;
     background-color: green;
-    height: ${props => props.altura}px;
+    height: ${props => props.altura ? props.altura : 200}px;
 `;

@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import { CustomStore } from '../../config/CustomStore/CustomStore';
-import styles from './Index.module.css';
+import { TituloH4 } from '../../common/cssGlobal/Styles';
+
+import {
+    Wrapper
+} from './Styled';
 
 const Index: React.FC = () => {
 
@@ -9,9 +13,9 @@ const Index: React.FC = () => {
     }, []);
 
     return (
-        <div className={styles['container']}>
-            <h1>Página inicial antes do login</h1>
-        </div>
+        <Wrapper>
+            <TituloH4> Página inicial antes do login </TituloH4>
+        </Wrapper>
     );
 };
 
