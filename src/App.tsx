@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import { ApplicationStore } from './common/jotaiAtoms/ApplicationStore/ApplicationStore';
+import { ApplicationStore } from './config/ApplicationStore/ApplicationStore';
 
 import { Header } from './features/Header/Header';
 import { Router } from './router/Router';

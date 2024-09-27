@@ -1,6 +1,6 @@
 import { createStore } from 'jotai';
 
-import { applicationInfoState } from '../ApplicationInfoState/ApplicationInfoState';
+import { applicationInfoState } from '../../common/jotaiAtoms/ApplicationInfoState/ApplicationInfoState';
 
 class ApplicationStore {
     public Store: any;

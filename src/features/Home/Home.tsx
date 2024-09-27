@@ -10,7 +10,7 @@ import { IApiHealthModel } from "../../models/Services/ApiHealth/IApiHealthModel
 
 import { sampleInformationState } from '../../common/jotaiAtoms/SampleAtom/SampleAtom';
 import { applicationInfoState } from '../../common/jotaiAtoms/ApplicationInfoState/ApplicationInfoState';
-import { ApplicationStore } from "../../common/jotaiAtoms/ApplicationStore/ApplicationStore";
+import { ApplicationStore } from "../../config/ApplicationStore/ApplicationStore";
 
 interface IHomeComponentInfo {
     Name: string;
